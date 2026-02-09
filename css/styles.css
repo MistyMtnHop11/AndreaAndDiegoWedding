@@ -1,5 +1,16 @@
+/*=======================================================
+    Andrea and Diego Wedding Theme
+========================================================= */
+
+/* --- CSS Variables --- */
+:root {
+    --bg-primary: rgb(20, 18, 16);
+}
+
+
 body {
-  font-family: system-ui, sans-serif;
-  margin: 0;
-  padding: 2rem;
+    background-color: var(--bg-primary);
+    font-family: system-ui, sans-serif;
+    margin: 0;
+    padding: 2rem;
 }
