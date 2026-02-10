@@ -7,10 +7,54 @@
     --bg-primary: rgb(20, 18, 16);
 }
 
+/* --- Fonts --- */
+@font-face {
+    font-family: 'Parfumerie Script';
+    src: url(../fonts/ParfumerieScriptRegular.woff2) format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Burgues Script';
+    src: url(../fonts/Burgues\ Script\ W00\ Regular.woff2) format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Citadel Script';
+    src: url(../fonts/Citadel\ Script\ AT.woff2) format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neue Montreal';
+    src: url(../fonts/Neue\ Montreal\ Regular.woff2) format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Optimal';
+    src: url(../fonts/OptimaLTStd.woff2) format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'The Seasons';
+    src: url(../fonts/TheSeasonsRegular.woff2) format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
 
 body {
     background-color: var(--bg-primary);
     font-family: system-ui, sans-serif;
     margin: 0;
     padding: 2rem;
+}
+html, body {
+    height: 100%;
+    background-color: var(--bg-primary);
 }
