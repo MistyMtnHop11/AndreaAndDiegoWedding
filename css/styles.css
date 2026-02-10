@@ -5,6 +5,11 @@
 /* --- CSS Variables --- */
 :root {
     --bg-primary: rgb(20, 18, 16);
+    --bg-wherewhen: rgb(246, 239, 222);
+    --bg-detailsfaq: rgb(223, 217, 201);
+    --bg-greens: rgba(54, 53, 11, 0.5);
+
+
 }
 
 /* --- Fonts --- */
@@ -47,29 +52,187 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'The Seasons-LT';
+    src: url(../fonts/theseasons-lt.woff2) format('woff2');
+    font-weight: lighter;
+    font-style: normal;
+}
 
-body {
-    background-color: var(--bg-primary);
-    font-family: system-ui, sans-serif;
-    margin: 0;
-    padding: 2rem;
-}
 html, body {
-    height: 100%;
-    background-color: var(--bg-primary);
+    height: 100vh;
+    margin:0;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    /*background-color: var(--bg-primary);*/
+    font-family: system-ui, sans-serif;
 }
-.display-1 {
+/* .display-1 {
     font-family: 'Parfumerie Script', cursive;
     font-size: 3rem;
     color: white;
     text-align: center;
     margin-bottom: 2rem;
-}
+} */
 
-#line1 {
+
+/* #line1 {
     font-family: 'The Seasons', cursive;
     font-size: 1.5rem;
     color: white;
     text-align: center;
     margin-bottom: 1rem;
+} */
+
+
+/* LANDING PAGE */
+#landingPage {
+    position: relative;
+    background-image: url('../assets/landingPage.jpeg');
+    background-size: cover;
+    background-position: center 40%;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    width: 100%;
+
+    font-family: 'The Seasons-LT', cursive;
+    font-size: 9rem;
+    color:black;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 15vh;
+    justify-self: center;
+    align-items: center;
+}
+
+#landingPage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(214, 205, 194, 0.4);
+    z-index: 0;
+}
+
+#landingPage > * {
+    position: relative;
+    z-index: 1;
+}
+
+#landing-font {
+    line-height:1.1;
+    font-weight: 100;
+}
+
+#thelogo {
+    transform: scale(.6);
+}
+
+/* --- Where and When Section --- */
+#wherewhen {
+    background-color: var(--bg-wherewhen);
+    height: 100vh;
+
+    font-family: 'The Seasons-LT', cursive;
+    font-size: 6rem;
+    font-style: normal;
+    color:black;
+    text-align: center;
+}
+.imageWeddingDate {
+    display: block;
+    width: 70vh;
+    height: 80vh;
+
+    object-fit: cover;          /* Crop the image to fill the container */
+    object-position: 50% center; /* Adjust the horizontal position as needed */
+    /*filter: brightness(1.1) contrast(1.2) saturate(1.0);  Optional: enhance the image appearance */
+    border: 12px solid #212020;
+    padding: 40px;
+}
+.image-frame {
+    display:inline-block;
+    padding: 30px;
+    border: 12px solid #212020;
+}
+
+
+#weddingDate {
+    font-family: 'Parfumerie Script', cursive;
+    font-size: 12rem;
+    color:black;
+    text-align: center;
+    margin-bottom: 0.3rem;
+}
+/* Text column styling */
+.wedding-text-column p {
+    margin: 0;             /* remove default paragraph spacing */
+    line-height: 1.1;      /* slightly tighter line spacing */
+}
+#weddingVenue {
+    font-size: 6rem;
+    font-family: 'The Seasons-LT', cursive;
+    font-style: italic;
+    color: #212020;
+}
+
+/* --- Our Special Day Section --- */
+#ourSpecialDay {
+    position: relative;
+    background-image: url('../assets/aiGenFountain.png');
+    background-size: cover;
+    background-position: center 40%;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+
+    font-family: 'Optimal', sans-serif;
+    font-size: 2.5rem;
+    color: rgb(255, 255, 255);
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#ourSpecialDay::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(214, 205, 194, 0.4);
+    z-index: 0;
+}
+
+#ourSpecialDay > * {
+    position: relative;
+    z-index: 1;
+}
+
+.specDayGreenBox {
+    background-color: var(--bg-greens);
+    padding: 10px 30px;
+    width: 90vw;
+    max-width: none;
+    min-height: 500px;
+    text-align: center;
+    position: center;   /*center the text box within the section*/
+
+    margin: auto;     /* Center the box horizontally */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center the box horizontally */
+    align-items: center;     /* Center the box vertically */
+
+}
+#ourDay-font {
+    font-family: 'Citadel Script', cursive;
+    font-size: 6rem;
+}
+#ourDayEssay {
+    line-height: 1.5;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
