@@ -58,3 +58,18 @@ html, body {
     height: 100%;
     background-color: var(--bg-primary);
 }
+.display-1 {
+    font-family: 'Parfumerie Script', cursive;
+    font-size: 3rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#line1 {
+    font-family: 'The Seasons', cursive;
+    font-size: 1.5rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 1rem;
+}
