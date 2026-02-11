@@ -1,5 +1,5 @@
 /*=======================================================
-    Andrea and Diego Wedding Theme
+    Andrea and Diego Wedding Theme - MOBILE OPTIMIZED
 ========================================================= */
 
 /* --- CSS Variables --- */
@@ -8,8 +8,13 @@
     --bg-wherewhen: rgb(246, 239, 222);
     --bg-detailsfaq: rgb(223, 217, 201);
     --bg-greens: rgba(54, 53, 11, 0.5);
-
-
+    
+    /* Responsive spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 5rem;
 }
 
 /* --- Fonts --- */
@@ -18,6 +23,7 @@
     src: url(../fonts/ParfumerieScriptRegular.woff2) format('woff2');
     font-weight: normal;
     font-style: normal;
+    font-display: swap; /* Better performance */
 }
 
 @font-face {
@@ -25,6 +31,7 @@
     src: url(../fonts/Burgues\ Script\ W00\ Regular.woff2) format('woff2');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -32,6 +39,7 @@
     src: url(../fonts/Citadel\ Script\ AT.woff2) format('woff2');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -39,73 +47,72 @@
     src: url(../fonts/Neue\ Montreal\ Regular.woff2) format('woff2');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
+
 @font-face {
     font-family: 'Optimal';
     src: url(../fonts/OptimaLTStd.woff2) format('woff2');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
+
 @font-face {
     font-family: 'The Seasons';
     src: url(../fonts/TheSeasonsRegular.woff2) format('woff2');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
+
 @font-face {
     font-family: 'The Seasons-LT';
     src: url(../fonts/theseasons-lt.woff2) format('woff2');
     font-weight: lighter;
     font-style: normal;
+    font-display: swap;
+}
+
+/* --- Base Styles --- */
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 html, body {
-    height: 100vh;
-    margin:0;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-    /*background-color: var(--bg-primary);*/
-    font-family: system-ui, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    font-family: system-ui, -apple-system, sans-serif;
 }
-/* .display-1 {
-    font-family: 'Parfumerie Script', cursive;
-    font-size: 3rem;
-    color: white;
-    text-align: center;
-    margin-bottom: 2rem;
-} */
 
+/* Remove scroll snap on mobile - causes issues */
+@media (min-width: 768px) {
+    html, body {
+        overflow-y: scroll;
+        scroll-snap-type: y mandatory;
+    }
+}
 
-/* #line1 {
-    font-family: 'The Seasons', cursive;
-    font-size: 1.5rem;
-    color: white;
-    text-align: center;
-    margin-bottom: 1rem;
-} */
-
-
-/* LANDING PAGE */
+/* --- LANDING PAGE --- */
 #landingPage {
     position: relative;
     background-image: url('../assets/landingPage.jpeg');
     background-size: cover;
-    background-position: center 40%;
+    background-position: center;
     background-repeat: no-repeat;
     min-height: 100vh;
+    min-height: 100svh; /* Better mobile support */
     width: 100%;
-
-    font-family: 'The Seasons-LT', cursive;
-    font-size: 9rem;
-    color:black;
-    text-align: center;
-
+    
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    padding-top: 15vh;
-    justify-self: center;
+    justify-content: center;
     align-items: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+    padding-top: 5vh;
 }
 
 #landingPage::before {
@@ -121,83 +128,204 @@ html, body {
     z-index: 1;
 }
 
-#landing-font {
-    line-height:1.1;
-    font-weight: 100;
+.logo-container {
+    max-width: 100%;
+    padding: var(--spacing-sm);
 }
 
 #thelogo {
-    transform: scale(.6);
+    width: 100%;
+    height: auto;
+    max-width: 50px; /* Mobile size - very small */
+    display: block;
+    margin: 0 auto;
 }
 
-/* --- Where and When Section --- */
+.landing-text-container {
+    width: 100%;
+    padding: 0 var(--spacing-sm);
+}
+
+#landing-font {
+    font-family: 'The Seasons-LT', cursive;
+    font-size: clamp(2rem, 8vw, 4rem); /* Responsive sizing */
+    font-weight: 100;
+    line-height: 1.1;
+    color: black;
+    text-align: center;
+    margin: 0;
+    word-wrap: break-word;
+}
+
+/* Mobile only - move logo higher */
+@media (max-width: 767px) {
+    #landingPage {
+        justify-content: flex-start !important;
+        padding-top: 10vh; /* Adjust this value: 5vh, 10vh, 15vh, etc. */
+    }
+    
+    .logo-container {
+        margin-top: 0;
+    }
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+    #landingPage {
+        padding-top: 15vh;
+        justify-content: flex-start;
+    }
+    
+    #thelogo {
+        max-width: 100px; /* Tablet - between mobile 50px and desktop 150px */
+        transform: scale(1);
+    }
+    
+    #landing-font {
+        font-size: clamp(4rem, 9vw, 9rem);
+    }
+}
+
+/* Desktop */
+@media (min-width: 1200px) {
+    #thelogo {
+        max-width: 150px; /* Desktop - small subtle logo */
+        transform: scale(1);
+    }
+}
+
+/* --- WHERE AND WHEN SECTION --- */
 #wherewhen {
     background-color: var(--bg-wherewhen);
-    height: 100vh;
-
+    min-height: 100vh;
+    min-height: 100svh;
+    width: 100%;
+    padding: var(--spacing-md) 0;
+    
     font-family: 'The Seasons-LT', cursive;
-    font-size: 6rem;
-    font-style: normal;
-    color:black;
+    color: black;
     text-align: center;
 }
+
+/* Image column - adjusts for mobile */
+.image-column {
+    padding: var(--spacing-md) var(--spacing-sm);
+}
+
+.image-frame {
+    display: inline-block;
+    padding: 15px; /* Smaller on mobile */
+    border: 8px solid #212020; /* Thinner on mobile */
+    max-width: 100%;
+}
+
 .imageWeddingDate {
     display: block;
-    width: 70vh;
-    height: 80vh;
-
-    object-fit: cover;          /* Crop the image to fill the container */
-    object-position: 50% center; /* Adjust the horizontal position as needed */
-    /*filter: brightness(1.1) contrast(1.2) saturate(1.0);  Optional: enhance the image appearance */
-    border: 12px solid #212020;
-    padding: 40px;
-}
-.image-frame {
-    display:inline-block;
-    padding: 30px;
-    border: 12px solid #212020;
+    width: 100%;
+    height: auto;
+    max-width: 400px; /* Mobile constraint */
+    aspect-ratio: 3/4; /* Maintain aspect ratio */
+    
+    object-fit: cover;
+    object-position: 50% center;
+    border: 8px solid #212020;
+    padding: 20px; /* Less padding on mobile */
 }
 
+/* Text column styling */
+.wedding-text-column {
+    padding: var(--spacing-lg) var(--spacing-sm);
+}
+
+.wedding-text-column p {
+    margin: 0;
+    line-height: 1.1;
+}
 
 #weddingDate {
     font-family: 'Parfumerie Script', cursive;
-    font-size: 12rem;
-    color:black;
-    text-align: center;
-    margin-bottom: 0.3rem;
-}
-/* Text column styling */
-.wedding-text-column p {
-    margin: 0;             /* remove default paragraph spacing */
-    line-height: 1.1;      /* slightly tighter line spacing */
-}
-#weddingVenue {
-    font-size: 6rem;
-    font-family: 'The Seasons-LT', cursive;
-    font-style: italic;
-    color: #212020;
+    font-size: clamp(3rem, 12vw, 6rem); /* Responsive */
+    color: black;
+    margin-bottom: 0.5rem;
 }
 
-/* --- Our Special Day Section --- */
+#weddingVenue {
+    font-family: 'The Seasons-LT', cursive;
+    font-style: italic;
+    font-size: clamp(2rem, 6vw, 4rem);
+    color: #212020;
+    margin-bottom: 0.5rem;
+}
+
+#venueName {
+    font-family: 'The Seasons-LT', cursive;
+    font-size: clamp(2.5rem, 8vw, 6rem);
+    font-weight: 300;
+    color: black;
+}
+
+/* Tablet and up - image gets bigger */
+@media (min-width: 768px) {
+    #wherewhen {
+        display: flex;
+        align-items: center;
+    }
+    
+    .image-frame {
+        padding: 30px;
+        border: 12px solid #212020;
+        margin-left: 5vh;
+    }
+    
+    .imageWeddingDate {
+        max-width: 500px;
+        border: 12px solid #212020;
+        padding: 40px;
+    }
+    
+    #weddingDate {
+        font-size: clamp(6rem, 10vw, 12rem);
+    }
+    
+    #weddingVenue {
+        font-size: clamp(3rem, 6vw, 6rem);
+    }
+    
+    #venueName {
+        font-size: clamp(3rem, 6vw, 6rem);
+    }
+}
+
+/* Desktop - even bigger */
+@media (min-width: 1200px) {
+    .image-frame {
+        margin-left: 10vh;
+    }
+    
+    .imageWeddingDate {
+        max-width: 70vh;
+        height: 80vh;
+    }
+}
+
+/* --- OUR SPECIAL DAY SECTION --- */
 #ourSpecialDay {
     position: relative;
     background-image: url('../assets/aiGenFountain.png');
     background-size: cover;
-    background-position: center 40%;
+    background-position: center;
     background-repeat: no-repeat;
-    height: 100vh;
+    background-attachment: scroll; /* Better for mobile */
+    min-height: 100vh;
+    min-height: 100svh;
     width: 100%;
-
-    font-family: 'Optimal', sans-serif;
-    font-size: 2.5rem;
-    color: rgb(255, 255, 255);
-    text-align: center;
-
+    
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    padding: var(--spacing-md) var(--spacing-sm);
 }
+
 #ourSpecialDay::before {
     content: "";
     position: absolute;
@@ -213,26 +341,159 @@ html, body {
 
 .specDayGreenBox {
     background-color: var(--bg-greens);
-    padding: 10px 30px;
-    width: 90vw;
-    max-width: none;
-    min-height: 500px;
-    text-align: center;
-    position: center;   /*center the text box within the section*/
-
-    margin: auto;     /* Center the box horizontally */
+    backdrop-filter: blur(5px); /* Nice effect */
+    padding: var(--spacing-md) var(--spacing-md);
+    width: 100%;
+    border-radius: 8px; /* Softer corners on mobile */
+    
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center the box horizontally */
-    align-items: center;     /* Center the box vertically */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 
-}
-#ourDay-font {
+.ourDay-title {
     font-family: 'Citadel Script', cursive;
-    font-size: 6rem;
+    font-size: clamp(2.5rem, 10vw, 4rem); /* Mobile responsive */
+    color: white;
+    margin-bottom: var(--spacing-sm);
 }
-#ourDayEssay {
-    line-height: 1.5;
-    margin-bottom: 0;
-    padding-bottom: 0;
+
+.special-day-content {
+    width: 100%;
+}
+
+.special-day-text {
+    font-family: 'Optimal', sans-serif;
+    font-size: clamp(1rem, 3vw, 1.5rem); /* Responsive text */
+    color: white;
+    line-height: 1.6;
+    margin-bottom: var(--spacing-sm);
+}
+
+.special-day-signature {
+    font-family: 'Optimal', sans-serif;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    color: white;
+    font-style: italic;
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-xs);
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+    #ourSpecialDay {
+        background-attachment: fixed; /* Parallax on desktop */
+    }
+    
+    .specDayGreenBox {
+        padding: var(--spacing-lg) var(--spacing-xl);
+        max-width: 900px;
+    }
+    
+    .ourDay-title {
+        font-size: clamp(4rem, 8vw, 6rem);
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .special-day-text {
+        font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .special-day-signature {
+        font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+        margin-top: var(--spacing-lg);
+    }
+}
+
+/* Desktop */
+@media (min-width: 1200px) {
+    .specDayGreenBox {
+        padding: 40px 60px;
+        max-width: 90vw;
+    }
+}
+
+/* --- TOUCH IMPROVEMENTS --- */
+@media (hover: none) and (pointer: coarse) {
+    /* This targets touch devices */
+    
+    /* Make touch targets bigger */
+    a, button {
+        min-height: 44px;
+        min-width: 44px;
+        padding: 12px;
+    }
+    
+    /* Remove hover effects on touch */
+    *:hover {
+        /* Prevent sticky hovers on mobile */
+    }
+}
+
+/* --- PERFORMANCE OPTIMIZATIONS --- */
+
+/* Reduce animations on low-power devices */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: dark) {
+    /* You can add dark mode styles here if desired */
+}
+
+/* --- PRINT STYLES --- */
+@media print {
+    #landingPage,
+    #wherewhen,
+    #ourSpecialDay {
+        page-break-inside: avoid;
+        min-height: auto;
+    }
+}
+
+/* --- LANDSCAPE MOBILE FIX --- */
+@media (max-height: 500px) and (orientation: landscape) {
+    #landingPage,
+    #wherewhen,
+    #ourSpecialDay {
+        min-height: auto;
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+    
+    #landing-font {
+        font-size: 2rem;
+    }
+    
+    #thelogo {
+        max-width: 200px;
+    }
+}
+
+/* --- VERY SMALL SCREENS (iPhone SE, etc) --- */
+@media (max-width: 375px) {
+    .image-frame {
+        padding: 10px;
+        border: 6px solid #212020;
+    }
+    
+    .imageWeddingDate {
+        border: 6px solid #212020;
+        padding: 15px;
+    }
+    
+    .specDayGreenBox {
+        padding: var(--spacing-sm) var(--spacing-sm);
+    }
+    
+    #landing-font {
+        font-size: 1.8rem;
+    }
 }
