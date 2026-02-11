@@ -18,6 +18,8 @@
 }
 
 /* --- Fonts --- */
+
+
 @font-face {
     font-family: 'Parfumerie Script';
     src: url(../fonts/ParfumerieScriptRegular.woff2) format('woff2');
@@ -147,9 +149,10 @@ html, body {
 }
 
 #landing-font {
-    font-family: 'The Seasons-LT', cursive;
+    font-family: 'Cormorant Garamond', serif;
     font-size: clamp(2rem, 8vw, 4rem); /* Responsive sizing */
-    font-weight: 100;
+    letter-spacing: 0.01em;             /* Subtle letter spacing */
+    font-weight: 300;
     line-height: 1.1;
     color: black;
     text-align: center;
