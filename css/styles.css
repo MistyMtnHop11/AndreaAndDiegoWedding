@@ -1,33 +1,38 @@
 /*=======================================================
     Andrea and Diego Wedding Theme - MOBILE OPTIMIZED
+    Rebuilt and Organized
 ========================================================= */
 
-/* --- CSS Variables --- */
+/* ========================================================
+   CSS VARIABLES
+========================================================= */
 :root {
+    /* Color Palette */
     --bg-primary: rgb(20, 18, 16);
     --bg-wherewhen: rgb(246, 239, 222);
     --bg-detailsfaq: rgb(223, 217, 201);
     --bg-greens: rgba(54, 53, 11, 0.5);
-    --txt-color-wheat: #dfd9c9;
     --bg-greens-solid: rgb(54, 53, 11);
+    --txt-color-wheat: #dfd9c9;
     
-    /* Responsive spacing */
-    --spacing-xs: 0.5rem;
-    --spacing-sm: 1rem;
-    --spacing-md: 2rem;
-    --spacing-lg: 3rem;
-    --spacing-xl: 5rem;
+    /* Responsive Spacing System */
+    --spacing-xs: 0.5rem;   /* 8px */
+    --spacing-sm: 1rem;     /* 16px */
+    --spacing-md: 2rem;     /* 32px */
+    --spacing-lg: 3rem;     /* 48px */
+    --spacing-xl: 5rem;     /* 80px */
 }
 
-/* --- Fonts --- */
 
-
+/* ========================================================
+   FONT FACES
+========================================================= */
 @font-face {
     font-family: 'Parfumerie Script';
     src: url(../fonts/ParfumerieScriptRegular.woff2) format('woff2');
     font-weight: normal;
     font-style: normal;
-    font-display: swap; /* Better performance */
+    font-display: swap;
 }
 
 @font-face {
@@ -78,29 +83,46 @@
     font-display: swap;
 }
 
-/* --- Base Styles --- */
+
+/* ========================================================
+   BASE / RESET STYLES
+========================================================= */
+* {
+    box-sizing: border-box;
+}
+
 html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
 }
 
-html, body {
+body {
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-x: hidden;
     font-family: system-ui, -apple-system, sans-serif;
+    min-height: 100%;
 }
 
-/* Remove scroll snap on mobile - causes issues */
+/* Scroll snap for desktop only */
 @media (min-width: 768px) {
-    html, body {
-        overflow-y: scroll;
+    html {
         scroll-snap-type: y mandatory;
+    }
+    
+    section {
+        scroll-snap-align: start;
     }
 }
 
-/* --- LANDING PAGE --- */
+
+/* ========================================================
+   SECTION 1: LANDING PAGE
+========================================================= */
 #landingPage {
     position: relative;
     background-image: url('../assets/landingPage.jpeg');
@@ -108,15 +130,14 @@ html, body {
     background-position: center;
     background-repeat: no-repeat;
     min-height: 100vh;
-    min-height: 100svh; /* Better mobile support */
+    min-height: 100svh;
     width: 100%;
     
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    padding: var(--spacing-sm) var(--spacing-md);
-    padding-top: 5vh;
+    padding: 10vh var(--spacing-md) var(--spacing-md);
 }
 
 #landingPage::before {
@@ -132,19 +153,22 @@ html, body {
     z-index: 1;
 }
 
+/* Logo */
 .logo-container {
     max-width: 100%;
     padding: var(--spacing-sm);
+    margin-top: 0;
 }
 
 #thelogo {
     width: 100%;
     height: auto;
-    max-width: 50px; /* Mobile size - very small */
+    max-width: 50px;
     display: block;
     margin: 0 auto;
 }
 
+/* Landing Text */
 .landing-text-container {
     width: 100%;
     padding: 0 var(--spacing-sm);
@@ -152,8 +176,8 @@ html, body {
 
 #landing-font {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2rem, 8vw, 4rem); /* Responsive sizing */
-    letter-spacing: 0.01em;             /* Subtle letter spacing */
+    font-size: clamp(2rem, 8vw, 4rem);
+    letter-spacing: 0.01em;
     font-weight: 300;
     line-height: 1.1;
     color: black;
@@ -162,28 +186,14 @@ html, body {
     word-wrap: break-word;
 }
 
-/* Mobile only - move logo higher */
-@media (max-width: 767px) {
-    #landingPage {
-        justify-content: flex-start !important;
-        padding-top: 10vh; /* Adjust this value: 5vh, 10vh, 15vh, etc. */
-    }
-    
-    .logo-container {
-        margin-top: 0;
-    }
-}
-
-/* Tablet and up */
+/* Landing Page - Tablet */
 @media (min-width: 768px) {
     #landingPage {
         padding-top: 15vh;
-        justify-content: flex-start;
     }
     
     #thelogo {
-        max-width: 100px; /* Tablet - between mobile 50px and desktop 150px */
-        transform: scale(1);
+        max-width: 100px;
     }
     
     #landing-font {
@@ -191,15 +201,17 @@ html, body {
     }
 }
 
-/* Desktop */
+/* Landing Page - Desktop */
 @media (min-width: 1200px) {
     #thelogo {
-        max-width: 150px; /* Desktop - small subtle logo */
-        transform: scale(1);
+        max-width: 150px;
     }
 }
 
-/* --- WHERE AND WHEN SECTION --- */
+
+/* ========================================================
+   SECTION 2: WHERE AND WHEN
+========================================================= */
 #wherewhen {
     background-color: var(--bg-wherewhen);
     min-height: 100vh;
@@ -212,15 +224,15 @@ html, body {
     text-align: center;
 }
 
-/* Image column - adjusts for mobile */
+/* Image Column */
 .image-column {
     padding: var(--spacing-md) var(--spacing-sm);
 }
 
 .image-frame {
     display: inline-block;
-    padding: 15px; /* Smaller on mobile */
-    border: 8px solid #212020; /* Thinner on mobile */
+    padding: 15px;
+    border: 8px solid #212020;
     max-width: 100%;
 }
 
@@ -228,16 +240,15 @@ html, body {
     display: block;
     width: 100%;
     height: auto;
-    max-width: 400px; /* Mobile constraint */
-    aspect-ratio: 3/4; /* Maintain aspect ratio */
-    
+    max-width: 400px;
+    aspect-ratio: 3/4;
     object-fit: cover;
     object-position: 50% center;
     border: 8px solid #212020;
-    padding: 20px; /* Less padding on mobile */
+    padding: 20px;
 }
 
-/* Text column styling */
+/* Text Column */
 .wedding-text-column {
     padding: var(--spacing-lg) var(--spacing-sm);
 }
@@ -249,7 +260,7 @@ html, body {
 
 #weddingDate {
     font-family: 'Parfumerie Script', cursive;
-    font-size: clamp(3rem, 12vw, 6rem); /* Responsive */
+    font-size: clamp(3rem, 12vw, 6rem);
     color: black;
     margin-bottom: 0.5rem;
 }
@@ -269,7 +280,7 @@ html, body {
     color: black;
 }
 
-/* Tablet and up - image gets bigger */
+/* Where/When - Tablet */
 @media (min-width: 768px) {
     #wherewhen {
         display: flex;
@@ -301,7 +312,7 @@ html, body {
     }
 }
 
-/* Desktop - even bigger */
+/* Where/When - Desktop */
 @media (min-width: 1200px) {
     .image-frame {
         margin-left: 10vh;
@@ -313,14 +324,17 @@ html, body {
     }
 }
 
-/* --- OUR SPECIAL DAY SECTION --- */
+
+/* ========================================================
+   SECTION 3: OUR SPECIAL DAY
+========================================================= */
 #ourSpecialDay {
     position: relative;
     background-image: url('../assets/aiGenFountain.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: scroll; /* Better for mobile */
+    background-attachment: scroll;
     min-height: 100vh;
     min-height: 100svh;
     width: 100%;
@@ -344,12 +358,13 @@ html, body {
     z-index: 1;
 }
 
+/* Green Content Box */
 .specDayGreenBox {
     background-color: var(--bg-greens);
-    backdrop-filter: blur(5px); /* Nice effect */
-    padding: var(--spacing-md) var(--spacing-md);
+    backdrop-filter: blur(5px);
+    padding: var(--spacing-md);
     width: 100%;
-    border-radius: 8px; /* Softer corners on mobile */
+    border-radius: 8px;
     
     display: flex;
     flex-direction: column;
@@ -360,7 +375,7 @@ html, body {
 
 .ourDay-title {
     font-family: 'Citadel Script', cursive;
-    font-size: clamp(2.5rem, 10vw, 4rem); /* Mobile responsive */
+    font-size: clamp(2.5rem, 10vw, 4rem);
     color: white;
     margin-bottom: var(--spacing-sm);
 }
@@ -371,7 +386,7 @@ html, body {
 
 .special-day-text {
     font-family: 'Optimal', sans-serif;
-    font-size: clamp(1rem, 3vw, 1.5rem); /* Responsive text */
+    font-size: clamp(1rem, 3vw, 1.5rem);
     color: white;
     line-height: 1.6;
     margin-bottom: var(--spacing-sm);
@@ -386,10 +401,10 @@ html, body {
     margin-bottom: var(--spacing-xs);
 }
 
-/* Tablet and up */
+/* Our Special Day - Tablet */
 @media (min-width: 768px) {
     #ourSpecialDay {
-        background-attachment: fixed; /* Parallax on desktop */
+        background-attachment: fixed;
     }
     
     .specDayGreenBox {
@@ -413,21 +428,21 @@ html, body {
     }
 }
 
-/* Desktop */
+/* Our Special Day - Desktop */
 @media (min-width: 1200px) {
     .specDayGreenBox {
         padding: 40px 60px;
         max-width: 90vw;
     }
 }
-/* ========================================================
-   THE WEDDING DETAILS SECTION
-========================================================= */
 
-/* --- Main Section --- */
+
+/* ========================================================
+   SECTION 4: THE WEDDING DETAILS
+========================================================= */
 #theWeddingDetails {
     background-color: var(--bg-greens-solid);
-    min-height: 100vh; /* Mobile: allow scrolling */
+    min-height: 100vh;
     min-height: 100svh;
     width: 100%;
     padding: 0;
@@ -440,14 +455,14 @@ html, body {
     flex-direction: column;
 }
 
-/* --- Container needs full height --- */
+/* Container Full Height */
 #theWeddingDetails > .container-fluid {
     height: 100%;
     display: flex;
     flex-direction: column;
 }
 
-/* --- Title Row (Mobile: auto height) --- */
+/* Title Row */
 #theWeddingDetails .row:first-child {
     display: flex;
     align-items: center;
@@ -462,14 +477,14 @@ html, body {
     align-items: center;
 }
 
-/* --- Details Row (Mobile: auto height) --- */
+/* Details Row */
 #theWeddingDetails .row:last-child {
     display: flex;
     align-items: center;
     padding: var(--spacing-md);
 }
 
-/* --- Title Styles --- */
+/* Title Styles */
 .wedding-details-the {
     font-family: 'Burgues Script', cursive;
     font-size: clamp(2rem, 6vw, 4rem);
@@ -482,7 +497,7 @@ html, body {
     font-size: clamp(3rem, 8vw, 6rem);
     font-weight: 300;
     letter-spacing: 0;
-    margin-top: -1rem; /* Less negative margin on mobile */
+    margin-top: -1rem;
     margin-bottom: 0;
     line-height: 1.1;
 }
@@ -502,15 +517,16 @@ html, body {
     margin-bottom: 0;
 }
 
+/* Detail Cards */
 .wedding-detail-card {
     padding: var(--spacing-sm);
     text-align: center;
-    margin-bottom: var(--spacing-md); /* Space between cards on mobile */
+    margin-bottom: var(--spacing-md);
 }
 
-/* --- Icon Styles (Mobile: smaller) --- */
+/* Icons */
 .wedding-icon {
-    width: 60px; /* Smaller on mobile */
+    width: 60px;
     height: 60px;
     max-width: 60px;
     display: block;
@@ -518,21 +534,20 @@ html, body {
     object-fit: contain;
 }
 
-/* --- Tablet and Up (768px+) --- */
+/* Wedding Details - Tablet */
 @media (min-width: 768px) {
-    /* Force 50/50 split on tablet+ */
     #theWeddingDetails {
-        height: 100vh; /* Fixed height on desktop */
+        height: 100vh;
         height: 100svh;
     }
     
     #theWeddingDetails .row:first-child {
-        flex: 1; /* 50% on desktop */
+        flex: 1;
         padding: 0;
     }
     
     #theWeddingDetails .row:last-child {
-        flex: 1; /* 50% on desktop */
+        flex: 1;
         padding: var(--spacing-lg) var(--spacing-md);
     }
     
@@ -549,16 +564,16 @@ html, body {
     
     .wedding-details-title {
         font-size: clamp(4rem, 12vw, 8rem);
-        margin-top: -2rem; /* Larger negative margin on desktop */
+        margin-top: -2rem;
     }
     
     .wedding-detail-card {
         padding: var(--spacing-lg) var(--spacing-md);
-        margin-bottom: 0; /* No bottom margin on desktop */
+        margin-bottom: 0;
     }
 }
 
-/* --- Desktop (1200px+) --- */
+/* Wedding Details - Desktop */
 @media (min-width: 1200px) {
     .wedding-icon {
         width: 120px;
@@ -571,26 +586,21 @@ html, body {
     }
 }
 
-/* --- TOUCH IMPROVEMENTS --- */
+
+/* ========================================================
+   UTILITY CLASSES
+========================================================= */
+
+/* Touch Improvements */
 @media (hover: none) and (pointer: coarse) {
-    /* This targets touch devices */
-    
-    /* Make touch targets bigger */
     a, button {
         min-height: 44px;
         min-width: 44px;
         padding: 12px;
     }
-    
-    /* Remove hover effects on touch */
-    *:hover {
-        /* Prevent sticky hovers on mobile */
-    }
 }
 
-/* --- PERFORMANCE OPTIMIZATIONS --- */
-
-/* Reduce animations on low-power devices */
+/* Performance - Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
     * {
         animation-duration: 0.01ms !important;
@@ -599,22 +609,23 @@ html, body {
     }
 }
 
-/* Dark mode support (optional) */
-@media (prefers-color-scheme: dark) {
-    /* You can add dark mode styles here if desired */
-}
-
-/* --- PRINT STYLES --- */
+/* Print Styles */
 @media print {
     #landingPage,
     #wherewhen,
-    #ourSpecialDay {
+    #ourSpecialDay,
+    #theWeddingDetails {
         page-break-inside: avoid;
         min-height: auto;
     }
 }
 
-/* --- LANDSCAPE MOBILE FIX --- */
+
+/* ========================================================
+   RESPONSIVE FIXES
+========================================================= */
+
+/* Landscape Mobile */
 @media (max-height: 500px) and (orientation: landscape) {
     #landingPage,
     #wherewhen,
@@ -632,7 +643,7 @@ html, body {
     }
 }
 
-/* --- VERY SMALL SCREENS (iPhone SE, etc) --- */
+/* Very Small Screens (iPhone SE, etc) */
 @media (max-width: 375px) {
     .image-frame {
         padding: 10px;
@@ -645,7 +656,7 @@ html, body {
     }
     
     .specDayGreenBox {
-        padding: var(--spacing-sm) var(--spacing-sm);
+        padding: var(--spacing-sm);
     }
     
     #landing-font {
