@@ -8,6 +8,8 @@
     --bg-wherewhen: rgb(246, 239, 222);
     --bg-detailsfaq: rgb(223, 217, 201);
     --bg-greens: rgba(54, 53, 11, 0.5);
+    --txt-color-wheat: #dfd9c9;
+    --bg-greens-solid: rgb(54, 53, 11);
     
     /* Responsive spacing */
     --spacing-xs: 0.5rem;
@@ -416,6 +418,156 @@ html, body {
     .specDayGreenBox {
         padding: 40px 60px;
         max-width: 90vw;
+    }
+}
+/* ========================================================
+   THE WEDDING DETAILS SECTION
+========================================================= */
+
+/* --- Main Section --- */
+#theWeddingDetails {
+    background-color: var(--bg-greens-solid);
+    min-height: 100vh; /* Mobile: allow scrolling */
+    min-height: 100svh;
+    width: 100%;
+    padding: 0;
+    
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--txt-color-wheat);
+    text-align: center;
+    
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Container needs full height --- */
+#theWeddingDetails > .container-fluid {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Title Row (Mobile: auto height) --- */
+#theWeddingDetails .row:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-lg) var(--spacing-md);
+}
+
+.weddingDetailsContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- Details Row (Mobile: auto height) --- */
+#theWeddingDetails .row:last-child {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-md);
+}
+
+/* --- Title Styles --- */
+.wedding-details-the {
+    font-family: 'Burgues Script', cursive;
+    font-size: clamp(2rem, 6vw, 4rem);
+    margin-bottom: 0;
+    line-height: 1.1;
+}
+
+.wedding-details-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 300;
+    letter-spacing: 0;
+    margin-top: -1rem; /* Less negative margin on mobile */
+    margin-bottom: 0;
+    line-height: 1.1;
+}
+
+.wedding-details-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 500;
+    margin-top: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.wedding-details-subentry {
+    font-family: 'Neue Montreal', sans-serif;
+    font-size: clamp(0.9rem, 2vw, 1.25rem);
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.wedding-detail-card {
+    padding: var(--spacing-sm);
+    text-align: center;
+    margin-bottom: var(--spacing-md); /* Space between cards on mobile */
+}
+
+/* --- Icon Styles (Mobile: smaller) --- */
+.wedding-icon {
+    width: 60px; /* Smaller on mobile */
+    height: 60px;
+    max-width: 60px;
+    display: block;
+    margin: 0 auto var(--spacing-sm);
+    object-fit: contain;
+}
+
+/* --- Tablet and Up (768px+) --- */
+@media (min-width: 768px) {
+    /* Force 50/50 split on tablet+ */
+    #theWeddingDetails {
+        height: 100vh; /* Fixed height on desktop */
+        height: 100svh;
+    }
+    
+    #theWeddingDetails .row:first-child {
+        flex: 1; /* 50% on desktop */
+        padding: 0;
+    }
+    
+    #theWeddingDetails .row:last-child {
+        flex: 1; /* 50% on desktop */
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+    
+    .wedding-icon {
+        width: 100px;
+        height: 100px;
+        max-width: 100px;
+    }
+    
+    .wedding-details-the {
+        padding-top: 15vh;
+        font-size: clamp(4rem, 12vw, 8rem);
+    }
+    
+    .wedding-details-title {
+        font-size: clamp(4rem, 12vw, 8rem);
+        margin-top: -2rem; /* Larger negative margin on desktop */
+    }
+    
+    .wedding-detail-card {
+        padding: var(--spacing-lg) var(--spacing-md);
+        margin-bottom: 0; /* No bottom margin on desktop */
+    }
+}
+
+/* --- Desktop (1200px+) --- */
+@media (min-width: 1200px) {
+    .wedding-icon {
+        width: 120px;
+        height: 120px;
+        max-width: 120px;
+    }
+    
+    .wedding-details-subentry {
+        font-size: 1.25rem;
     }
 }
 
