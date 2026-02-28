@@ -1,43 +1,43 @@
 console.log("test... wedding site loaded");
-let = isScrolling = false;
-let scrollTimeout;
+// let = isScrolling = false;
+// let scrollTimeout;
 
-// Add smooth scrolling to sections on mouse wheel
-document.querySelectorAll('section').forEach((section, index) => {
-    section.addEventListener('wheel', function(e) {
-        // no more default scroll behavior
-        e.preventDefault();
+// // Add smooth scrolling to sections on mouse wheel
+// document.querySelectorAll('section').forEach((section, index) => {
+//     section.addEventListener('wheel', function(e) {
+//         // no more default scroll behavior
+//         e.preventDefault();
 
-        clearTimeout(scrollTimeout); // clear any existing timeout to prevent multiple scrolls
+//         clearTimeout(scrollTimeout); // clear any existing timeout to prevent multiple scrolls
 
-        if(isScrolling) return; // if scrolling, wait
+//         if(isScrolling) return; // if scrolling, wait
         
-        //set flag
-        isScrolling = true;
+//         //set flag
+//         isScrolling = true;
 
-        // get scroll direction
-        const delta = Math.sign(e.deltaY);
-        const nextSection = delta > 0 ? this.nextElementSibling : this.previousElementSibling;
+//         // get scroll direction
+//         const delta = Math.sign(e.deltaY);
+//         const nextSection = delta > 0 ? this.nextElementSibling : this.previousElementSibling;
 
 
-        //scroll to next section if it exists and is a section element
-        if (nextSection && nextSection.tagName === 'SECTION') {
-            nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+//         //scroll to next section if it exists and is a section element
+//         if (nextSection && nextSection.tagName === 'SECTION') {
+//             nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+//         }
 
-        //Add a delay before next scroll
-        setTimeout(() => {
-            isScrolling = false;
-        }, 800); // Adjust the delay as needed 1000 -> 1 second
-    }, { passive: false });
-});
+//         //Add a delay before next scroll
+//         setTimeout(() => {
+//             isScrolling = false;
+//         }, 800); // Adjust the delay as needed 1000 -> 1 second
+//     }, { passive: false });
+// });
 
-document.addEventListener('scroll', function() {
-    clearTimeout(scrollTimeout); // Clear the timeout on scroll
-    scrollTimeout = setTimeout(() => {
-        isScrolling = false;
-    }, 150); // Adjust the delay as needed 1000 -> 1 second
-},{ passive: true });
+// document.addEventListener('scroll', function() {
+//     clearTimeout(scrollTimeout); // Clear the timeout on scroll
+//     scrollTimeout = setTimeout(() => {
+//         isScrolling = false;
+//     }, 150); // Adjust the delay as needed 1000 -> 1 second
+// },{ passive: true });
 
 // Fade in Animations when scrolling
 const observerOptions = {
