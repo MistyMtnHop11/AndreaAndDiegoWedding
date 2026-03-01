@@ -3,24 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Andrea Alessandra and Diego's Wedding!</title>
-    <!-- Add Google Font -->
+    <title>Andrea & Diego's Wedding</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Bootstrap CSS and JS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!--CSS Files-->
     <link rel="stylesheet" href="css/styles.css"/>
     <link rel="stylesheet" href="css/animations.css"/>
+    <link rel="stylesheet" href="css/navigation.css"/>
 </head>
-<body>
+<body class="multi-section">
+     <!-- Hamburger Menu -->
+    <button class="menu-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
     
+    <nav class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="details.html">Wedding Details</a>
+        <a href="the-deets.html">Travel Info</a>
+        <a href="registry.html">Gift Registry</a>
+    </nav>
+    
+    <div class="menu-overlay"></div>
+    
+    <!-- SECTION 1: Landing Page -->
     <section id="landingPage">
         <div class="container-fluid h-100">
             <div class="row justify-content-center text-center h-100 align-items-center">
@@ -36,36 +46,31 @@
         </div>
     </section>
     
-    
+    <!-- SECTION 2: Where and When -->
     <section id="wherewhen">
         <div class="container-fluid h-100">
             <div class="row align-items-center h-100 g-0">
-                
-                <!-- Image Column - Order changes on mobile -->
                 <div class="col-12 col-md-5 order-2 order-md-1 d-flex align-items-center justify-content-center image-column">
                     <div class="image-frame">
                         <img class="imageWeddingDate" src="/assets/diegoAndiKiss.jpeg" id="theKiss" alt="Andrea and Diego">
                     </div>                
                 </div>
-                
-                <!-- Text Column - Shows first on mobile -->
                 <div class="col-12 col-md-7 order-1 order-md-2 d-flex flex-column justify-content-center text-center wedding-text-column">
                     <p id="weddingDate">February 19th</p>
                     <p id="weddingVenue">at</p>
                     <p id="venueName">BELLA COLLINA</p>
                 </div>
-                
             </div>
         </div>
     </section>
 
+    <!-- SECTION 3: Our Special Day -->
     <section id="ourSpecialDay">
         <div class="container-fluid h-100">
             <div class="row justify-content-center align-items-center h-100">
                 <div class="col-12">
                     <div class="specDayGreenBox">
                         <p class="ourDay-title">Our special day</p>
-                        
                         <div class="special-day-content">
                             <p class="special-day-text">
                                 We are so excited to celebrate this special moment in our lives with
@@ -92,126 +97,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="theWeddingDetails">
-    <div class="container-fluid h-100">
-        <!-- Title Row -->
-        <div class="row justify-content-center align-items-center">
-            <div class="col-12">
-                <div class="weddingDetailsContent">
-                    <p class="wedding-details-the">The</p>
-                    <p class="wedding-details-title">WEDDING</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Details Row (3 columns) -->
-        <div class="row justify-content-center align-items-start g-4">
-            <!-- Ceremony -->
-            <div class="col-12 col-md-4">
-                <div class="wedding-detail-card">
-                    <img src="/assets/forest.png" class="wedding-icon" alt="Ceremony icon">
-                    <h4 class="wedding-details-subtitle">Ceremony</h4>
-                    <p class="wedding-details-subentry">The wedding will take place at a charming garden venue just outside central madrid. Exact location will be shared privately.</p>
-                </div>
-            </div>
-            
-            <!-- Reception -->
-            <div class="col-12 col-md-4">
-                <div class="wedding-detail-card">
-                    <img src="/assets/canopy.png" class="wedding-icon" alt="Reception icon">
-                    <h4 class="wedding-details-subtitle">Reception</h4>
-                    <p class="wedding-details-subentry">Following the ceremony, we'll gather for an intimate dinner with tapas, music, and wine under the Spanish sky.</p>
-                </div>
-            </div>
-            
-            <!-- Dress Code -->
-            <div class="col-12 col-md-4">
-                <div class="wedding-detail-card">
-                    <img src="/assets/flower.png" class="wedding-icon" alt="Dress code icon">
-                    <h4 class="wedding-details-subtitle">Dress Code</h4>
-                    <p class="wedding-details-subentry">Garden formal. Think soft fabrics, flowy dresses, linen suits &mdash; comfortable enough for warm weather. Elegant enough for photos!</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="the-deets">
-    <div class="container-fluid h-100">
-        <div class="row align-items-stretch h-100 g-0">
-            
-            <!-- Left Side - Full Image Coverage -->
-            <div class="col-12 col-md-6 order-2 order-md-1 image-columnA">
-                <div class="image-full">
-                    <img class="imageWindow" src="/assets/andiDiegoWindow.jpeg" id="windowScene" alt="Andrea and Diego looking out a window">
-                </div>                
-            </div>
-            
-            <!-- Right Side - Content -->
-            <div class="col-12 col-md-6 order-1 order-md-2 wedding-text-column">
-                
-                <!-- Title -->
-                <div>
-                    <p id="titleDetailsThe">The</p>
-                    <p id="titleDetailsDeets">DETAILS</p>
-                </div>
-                
-                <!-- Subsection 1: Airfare -->
-                <div>
-                    <p id="subtitleDetails">Airfare</p>
-                    <p id="paragraphDetails">Guests are kindly asked to book their own flights. We recommend arriving in Madrid no later than December 5 to allow time for rest and sightseeing before the wedding.</p>
-                </div>
-                
-                <hr>
-                
-                <!-- Subsection 2: Accommodations -->
-                <div>
-                    <p id="subtitleDetails">Accommodations</p>
-                    <p id="paragraphDetails">We've reserved a block of rooms at Hotel Maravillosa and will provide discount codes via email. You're also welcome to stay anywhere nearby — central Madrid and Retiro are great areas.</p>
-                </div>
-                
-                <hr>
-                
-                <!-- Subsection 3: Wedding Itinerary -->
-                <div>
-                    <p id="subtitleDetails">Wedding Itinerary</p>
-                    <p id="paragraphDetails">A full itinerary will be emailed to confirmed guests. Expect a welcome dinner, optional city tour, and of course, the wedding day celebration.</p>
-                </div>
-                
-            </div>
-            
-        </div>
-    </div>
-</section>
-
-<section id="giftRegistry">
-        <div class="container-fluid h-100">
-            <div class="row align-items-center h-100 g-0"> <!--g0 is gutters removed, h-100 is full height 100%-->
-                
-                <!-- Left Col - Title & Icon -->
-                <div class="col-12 col-md-6 order-1 d-flex flex-column align-items-center justify-content-center gift-left-column">
-                    <!-- Title -->
-                    <div class="giftRegLeftContainer">
-                        <p id="giftTitle">Gift </p>
-                        <p id="registryTitle">REGISTRY</p>
-                    </div>
-                    <!-- Icon -->
-                    <div class="iconOlive">
-                        <img class="imageIconOlive" src="/assets/oliveBranchSketch0.png" id="theOliveBranch" alt="Olive Branch Icon">
-                    </div>                
-                </div>
-                
-                <!-- Right Column - Text Content -->
-                <div class="col-12 col-md-6 order-2 d-flex flex-column justify-content-center gift-right-column">
-                    <p class="gift-paragraph-main">Your presence at our wedding is the greatest gift of all.</p>
-                    <p class="gift-paragraph">However, if you'd like to contribute to our new chapter together, we welcome gifts through our Signing Spaces registry. Email hello@gmail.com with the Registry Code: ANDI-DIEGO as the subject line for our updated gift list.</p>
-                    <p class="gift-paragraph">Alternatively, if you prefer to support us as we begin our married life, a contribution to our  future would mean so much. Scan the QR on this page or email us at hello@gmail.com for our details.</p>
-                </div>
-                
             </div>
         </div>
     </section>

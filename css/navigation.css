@@ -1,0 +1,165 @@
+/*=======================================================
+    NAVIGATION STYLES
+    Andrea & Diego Wedding Site
+========================================================= */
+
+/* ========================================================
+   HAMBURGER MENU - TRANSPARENT
+========================================================= */
+
+/* Hamburger Button - Top Right, Transparent */
+.menu-toggle {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    z-index: 2000;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transition: transform 0.3s ease;
+}
+
+.menu-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* Hamburger Lines */
+.menu-toggle span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background: #36350b; /* Dark olive - visible on light backgrounds */
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+.dark-bg .menu-toggle span {
+    background: #dfd9c9; /* Light color on dark backgrounds */
+}
+
+/* Change color on dark sections */
+/* #landingPage .menu-toggle span,
+#ourSpecialDay .menu-toggle span,
+#theWeddingDetails .menu-toggle span,
+#giftRegistry .menu-toggle span {
+    background: #dfd9c9; /* Light color on dark backgrounds 
+} */
+
+/* Animate to X when open */
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -8px);
+}
+
+/* Menu Panel - Slides in from right */
+.nav-menu {
+    position: fixed;
+    top: 0;
+    right: -350px; /* Hidden off-screen */
+    width: 300px;
+    height: 100vh;
+    background: rgba(54, 53, 11, 0.98);
+    backdrop-filter: blur(10px);
+    padding: 5rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    z-index: 1999;
+    transition: right 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.nav-menu.open {
+    right: 0; /* Slide in */
+}
+
+/* Close Button
+.menu-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: #dfd9c9;
+    font-size: 2.5rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.menu-close:hover {
+    transform: rotate(90deg);
+} */
+
+/* Menu Links */
+.nav-menu a {
+    color: #dfd9c9;
+    text-decoration: none;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(223, 217, 201, 0.2);
+    transition: all 0.3s ease;
+}
+
+.nav-menu a:hover {
+    padding-left: 1rem;
+    color: white;
+    border-bottom-color: #dfd9c9;
+}
+
+.nav-menu a:last-child {
+    border-bottom: none;
+}
+
+/* Dark Overlay */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1998;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 767px) {
+    .menu-toggle {
+        top: 1.5rem;
+        right: 1.5rem;
+    }
+    
+    .nav-menu {
+        width: 250px;
+        right: -300px;
+        padding: 4rem 1.5rem 1.5rem;
+    }
+    
+    .nav-menu a {
+        font-size: 1.3rem;
+    }
+}

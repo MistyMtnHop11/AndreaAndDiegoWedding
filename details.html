@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Wedding Details - Andrea & Diego</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css"/>
+    <link rel="stylesheet" href="css/animations.css"/>
+    <link rel="stylesheet" href="css/navigation.css"/>
+</head>
+<body class="dark-bg">
+    
+     <!-- Hamburger Menu -->
+    <button class="menu-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    
+    <nav class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="details.html">Wedding Details</a>
+        <a href="the-deets.html">Travel Info</a>
+        <a href="registry.html">Gift Registry</a>
+    </nav>
+    
+    <div class="menu-overlay"></div>
+    <!-- Navigation -->
+    <nav class="navbar-custom">
+        <a href="index.html">← Home</a>
+        <a href="the-deets.html">Travel Info →</a>
+    </nav>
+
+    <!-- Wedding Details Section -->
+    <section id="theWeddingDetails">
+        <div class="container-fluid h-100">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-12">
+                    <div class="weddingDetailsContent">
+                        <p class="wedding-details-the">The</p>
+                        <p class="wedding-details-title">WEDDING</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center align-items-start g-4">
+                <div class="col-12 col-md-4">
+                    <div class="wedding-detail-card">
+                        <img src="/assets/forest.png" class="wedding-icon" alt="Ceremony icon">
+                        <h4 class="wedding-details-subtitle">Ceremony</h4>
+                        <p class="wedding-details-subentry">The wedding will take place at a charming garden venue just outside central madrid. Exact location will be shared privately.</p>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-md-4">
+                    <div class="wedding-detail-card">
+                        <img src="/assets/canopy.png" class="wedding-icon" alt="Reception icon">
+                        <h4 class="wedding-details-subtitle">Reception</h4>
+                        <p class="wedding-details-subentry">Following the ceremony, we'll gather for an intimate dinner with tapas, music, and wine under the Spanish sky.</p>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-md-4">
+                    <div class="wedding-detail-card">
+                        <img src="/assets/flower.png" class="wedding-icon" alt="Dress code icon">
+                        <h4 class="wedding-details-subtitle">Dress Code</h4>
+                        <p class="wedding-details-subentry">Garden formal. Think soft fabrics, flowy dresses, linen suits &mdash; comfortable enough for warm weather. Elegant enough for photos!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
