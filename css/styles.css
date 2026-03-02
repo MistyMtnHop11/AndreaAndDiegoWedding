@@ -602,6 +602,7 @@ section {
     text-align: center;
     display: flex;
     flex-direction: column;
+    height: 100%;
     /* Removed height: 100% to prevent stretching */
 }
 
@@ -648,6 +649,10 @@ section {
     .wedding-icon,
     .wedding-icon1 {
         margin-bottom: 0.5rem; /* Tight spacing between icon and subtitle */
+    }
+    .wedding-icon {
+        margin-top: 5em;
+        margin-bottom: 5em;
     }
     
     .wedding-details-subtitle {
