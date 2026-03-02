@@ -1088,6 +1088,62 @@ section {
     }
 }
 
+/* ========================================================
+   SECTION 7: FAQ
+========================================================= */
+
+#FAQ {
+    background-color: var(--bg-wherewhen);
+    min-height: 100vh;
+    min-height: 100svh;
+    width: 100%;
+    padding: clamp(2rem, 5vh, 4rem) 0;
+    font-family: 'Cormorant Garamond', serif;
+    color: #493a24;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.FAQTitle {
+    font-family: 'The Seasons-LT', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 6rem);
+    margin-bottom: 3rem;
+    line-height: 1;
+    letter-spacing: 0.02em;
+}
+
+.faqPrompts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 40rem;
+}
+
+.questionFAQ {
+    font-family: 'The Seasons', sans-serif;
+    font-size: clamp(1rem, 2vw, 3rem);
+    font-weight: 300;
+    margin-top: 0;
+    margin-bottom: clamp(1rem, 2vh, 2rem);
+    line-height: 1;
+}
+
+.answerFAQ {
+    font-family: 'Neue Montreal', sans-serif;
+    font-size: clamp(.8rem, 1.5vw, 1.1rem);
+    line-height: 1.7;
+    margin-bottom: clamp(1rem, 2vh, 2rem);
+}
+
+#FAQ hr {
+        border: none;
+        border-top: 1px solid #493a24;
+        width: 100px;
+        margin: var(--spacing-xs) auto;
+        opacity: 0.4;
+}
 
 /* ========================================================
    UTILITY CLASSES
