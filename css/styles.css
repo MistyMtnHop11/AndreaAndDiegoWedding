@@ -625,7 +625,7 @@ section {
 }
 
 /* MacBook Air Specific (1024px-1439px, height 800-900px) */
-@media (min-width: 1024px) and (max-width: 1439px) and (max-height: 900px) {
+@media (min-width: 1024px) and (max-width: 1441px) and (max-height: 900px) {
     #theWeddingDetails {
         padding: 1.5rem 0; /* Minimal top/bottom padding */
     }
@@ -692,6 +692,8 @@ section {
     .wedding-icon {
         width: clamp(80px, 6vw, 140px);
         height: clamp(80px, 6vw, 140px);
+        margin-top: 5em;
+        margin-bottom: 5em;
     }
 }
 
