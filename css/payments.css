@@ -1,0 +1,54 @@
+.payment-area {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 700px;
+}
+
+.payment-option {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.payment-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+    color: var(--txt-color-wheat);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.qr-code-payment {
+    width: 180px;
+    height: 180px;
+    border: 4px solid var(--txt-color-wheat);
+    border-radius: 12px;
+    padding: 0.75rem;
+    background: white;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.payment-handle {
+    font-family: 'Neue Montreal', sans-serif;
+    font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+    color: var(--txt-color-wheat);
+    word-break: break-word;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .payment-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .qr-code-payment {
+        width: 200px;
+        height: 200px;
+    }
+}

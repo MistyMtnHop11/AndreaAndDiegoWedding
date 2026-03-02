@@ -16,6 +16,7 @@
     --bg-greens-solid: rgb(54, 53, 11);
     --bg-giftregistry: #36350b;
     --txt-color-wheat: #dfd9c9;
+    --bg-color-html: #d3ccba;
     
     /* Responsive Spacing System */
     --spacing-xs: 0.5rem;
@@ -99,6 +100,7 @@ html {
     -moz-osx-font-smoothing: grayscale;
     height: 100%;
     overflow: hidden;
+    background-color: var(--bg-color-html);
 }
 
 body {
@@ -176,11 +178,10 @@ section {
     width: 100%;
     padding: 0 var(--spacing-sm);
 }
-
 #landing-font {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2rem, 5vw + 1rem, 6rem);
-    letter-spacing: 0.01em;
+    font-size: clamp(3rem, 8vw, 8rem); /* Much bigger */
+    letter-spacing: 0.05em;
     font-weight: 300;
     line-height: 1.1;
     color: #36350b;
@@ -189,6 +190,18 @@ section {
     word-wrap: break-word;
 }
 
+#landing-font-second {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 8vw, 8rem); /* Same size - big and bold */
+    letter-spacing: 0.05em;
+    font-weight: 300;
+    line-height: 1.1;
+    color: #36350b;
+    text-align: center;
+    margin: 0;
+    margin-top: 0.5rem;
+    white-space: nowrap;
+}
 /* Small Tablets & Laptops (768px - 1023px) - iPad, 10-11" laptops */
 @media (min-width: 768px) and (max-width: 1023px) {
     #landingPage {
@@ -208,6 +221,20 @@ section {
     
     #thelogo {
         max-width: 80px !important; /* MacBook Air size */
+    }
+    #landing-font {
+        font-size: clamp(2.5rem, 6vw, 6rem); /* Bigger */
+    }
+    
+    #landing-font-second {
+        font-size: clamp(2.5rem, 6vw, 6rem); /* Same size */
+        letter-spacing: 0.03em; /* Slightly tighter to fit */
+    }
+    
+    /* Widen container so text fits */
+    #landingPage .col-md-8 {
+        flex: 0 0 90% !important;
+        max-width: 90% !important;
     }
 }
 
@@ -326,13 +353,13 @@ section {
 @media (min-width: 768px) {
     .image-frame {
         padding: clamp(20px, 2vw, 30px);
-        border: 12px solid #212020;
+        border: 8px solid #212020;
         margin-left: clamp(2rem, 5vw, 10vh);
     }
     
     .imageWeddingDate {
         max-width: clamp(400px, 40vw, 600px);
-        border: 12px solid #212020;
+        border: 8px solid #212020;
         padding: clamp(25px, 3vw, 40px);
     }
 }
@@ -452,6 +479,10 @@ section {
         line-height: 1.6;
         margin-bottom: clamp(1rem, 2vh, 1.5rem);
     }
+
+    .special-day-text:nth-child(2) {
+        text-indent: 1em;
+    }
     
     .special-day-signature {
         font-size: clamp(0.9rem, 1.5vw, 1.4rem);
@@ -487,7 +518,6 @@ section {
     }
 }
 
-
 /* ========================================================
    SECTION 4: THE WEDDING DETAILS
 ========================================================= */
@@ -496,7 +526,7 @@ section {
     min-height: 100vh;
     min-height: 100svh;
     width: 100%;
-    padding: clamp(2rem, 4vh, 4rem) 0;
+    padding: clamp(1.5rem, 3vh, 3rem) 0; /* Reduced padding */
     font-family: 'Cormorant Garamond', serif;
     color: var(--txt-color-wheat);
     text-align: center;
@@ -511,11 +541,11 @@ section {
 }
 
 #theWeddingDetails .row:first-child {
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm); /* Reduced from var(--spacing-lg) */
 }
 
 .weddingDetailsContent {
-    padding: var(--spacing-md) 0;
+    padding: var(--spacing-xs) 0; /* Reduced from var(--spacing-md) */
 }
 
 .wedding-details-the {
@@ -539,28 +569,84 @@ section {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(1.5rem, 3vw, 2.5rem);
     font-weight: 500;
-    margin-top: var(--spacing-sm);
-    margin-bottom: var(--spacing-sm);
+    margin-top: 0.5rem; /* Reduced spacing above */
+    margin-bottom: 0.5rem; /* Reduced spacing below */
 }
 
 .wedding-details-subentry {
     font-family: 'Neue Montreal', sans-serif;
     font-size: clamp(1rem, 1.5vw, 1.3rem);
-    line-height: 1.6;
+    line-height: 1.5; /* Tighter line height */
     margin-bottom: 0;
 }
 
 .wedding-detail-card {
-    padding: var(--spacing-md);
+    padding: 0rem 2rem;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    /* Removed height: 100% to prevent stretching */
+}
+
+.wedding-icon,
+.wedding-icon1 {
+    display: block;
+    margin: 0 auto 0.5rem; /* Reduced bottom margin */
+    object-fit: contain;
+    /* Removed min-height to prevent stretching */
+}
+
+.wedding-icon1 {
+    width: clamp(300px, 12vw, 280px); /* Keep your sizes */
+    height: clamp(300px, 12vw, 280px);
 }
 
 .wedding-icon {
-    width: clamp(60px, 8vw, 120px);
-    height: clamp(60px, 8vw, 120px);
-    display: block;
-    margin: 0 auto var(--spacing-sm);
-    object-fit: contain;
+    width: clamp(100px, 10vw, 160px); /* Keep your sizes */
+    height: clamp(150px, 10vw, 160px);
+}
+
+/* MacBook Air Specific (1024px-1439px, height 800-900px) */
+@media (min-width: 1024px) and (max-width: 1439px) and (max-height: 900px) {
+    #theWeddingDetails {
+        padding: 1.5rem 0; /* Minimal top/bottom padding */
+    }
+    
+    #theWeddingDetails .row:first-child {
+        margin-bottom: 1rem; /* Tighter spacing after title */
+    }
+    
+    .weddingDetailsContent {
+        padding: 0.25rem 0; /* Minimal padding */
+    }
+    
+    .wedding-details-the {
+        font-size: clamp(2rem, 4.5vw, 5rem); /* Slightly smaller */
+    }
+    
+    .wedding-details-title {
+        font-size: clamp(2.5rem, 5.5vw, 6rem); /* Slightly smaller */
+    }
+    
+    .wedding-icon,
+    .wedding-icon1 {
+        margin-bottom: 0.5rem; /* Tight spacing between icon and subtitle */
+    }
+    
+    .wedding-details-subtitle {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        font-size: clamp(1.3rem, 2.5vw, 2rem); /* Slightly smaller */
+    }
+    
+    .wedding-details-subentry {
+        font-size: clamp(0.9rem, 1.3vw, 1.1rem); /* Slightly smaller */
+        line-height: 1.45; /* Tighter */
+    }
+    
+    .wedding-detail-card {
+        padding: 0rem 1.5rem; /* Less horizontal padding */
+    }
 }
 
 /* Cap sizes on ultra-wide */

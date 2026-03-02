@@ -40,6 +40,10 @@
     background: #dfd9c9; /* Light color on dark backgrounds */
 }
 
+.menu-toggle.active span {
+    background: #dfd9c9 !important; 
+}
+
 /* Change color on dark sections */
 /* #landingPage .menu-toggle span,
 #ourSpecialDay .menu-toggle span,

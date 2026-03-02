@@ -53,7 +53,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe all elements with the class 'fade-in'
-document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .fade-in-scale').forEach(el => {observer.observe(el)});
+document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .fade-in-scale, .fade-in-scale-special, .fade-in-no-y').forEach(el => {observer.observe(el)});
 
 
 /* ========================================================
