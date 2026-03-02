@@ -1062,6 +1062,9 @@ section {
         margin-bottom: .5em;
         max-width: 500px;
     }
+    .gift-paragraph {
+        font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+    }
 }
 
 @media (min-width: 1920px) {
