@@ -1,0 +1,197 @@
+/* ========================================================
+   RSVP MODAL
+========================================================= */
+
+/* RSVP Open Button */
+.rsvp-btn-open {
+    padding: 1rem 2rem;
+    background: #36350b;
+    color: var(--txt-color-wheat);
+    border: none;
+    border-radius: 8px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.rsvp-btn-open:hover {
+    background: #2a280a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Modal Overlay */
+.rsvp-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 3000; /* Above everything */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow-y: auto; /* Allow scrolling if content is tall */
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Modal Content Box */
+.rsvp-modal-content {
+    background-color: var(--bg-wherewhen);
+    margin: 5% auto;
+    padding: 3rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Close Button */
+.rsvp-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    color: #36350b;
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    line-height: 1;
+}
+
+.rsvp-close:hover {
+    color: #000;
+    transform: rotate(90deg);
+}
+
+/* Modal Title */
+.rsvp-modal-title {
+    font-family: 'Citadel Script', cursive;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: #36350b;
+    text-align: center;
+    margin-bottom: 2rem;
+    margin-top: 0;
+}
+
+/* Form Styles */
+.rsvp-modal .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.rsvp-modal .form-group label {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: #36350b;
+    margin-bottom: 0.5rem;
+}
+
+.rsvp-modal .form-group input,
+.rsvp-modal .form-group select,
+.rsvp-modal .form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #36350b;
+    border-radius: 4px;
+    font-family: 'Neue Montreal', sans-serif;
+    font-size: 1rem;
+    background: white;
+}
+
+.rsvp-modal .form-group input:focus,
+.rsvp-modal .form-group select:focus,
+.rsvp-modal .form-group textarea:focus {
+    outline: none;
+    border-color: #2a280a;
+    box-shadow: 0 0 0 3px rgba(54, 53, 11, 0.1);
+}
+
+.rsvp-modal .form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.rsvp-modal .submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background: #36350b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.rsvp-modal .submit-btn:hover {
+    background: #2a280a;
+    transform: translateY(-2px);
+}
+
+.rsvp-modal .submit-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.rsvp-modal .success-message {
+    display: none;
+    background: #d4edda;
+    color: #155724;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-family: 'Neue Montreal', sans-serif;
+}
+
+.rsvp-modal .error-message {
+    display: none;
+    background: #f8d7da;
+    color: #721c24;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-family: 'Neue Montreal', sans-serif;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 767px) {
+    .rsvp-modal-content {
+        margin: 10% auto;
+        padding: 2rem 1.5rem;
+        width: 95%;
+    }
+    
+    .rsvp-modal-title {
+        font-size: 2.5rem;
+    }
+    
+    .rsvp-close {
+        top: 0.5rem;
+        right: 1rem;
+        font-size: 2.5rem;
+    }
+}

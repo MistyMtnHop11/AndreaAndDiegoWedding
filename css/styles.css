@@ -1152,6 +1152,24 @@ section {
 }
 
 /* ========================================================
+   SECTION 8: RSVP
+========================================================= */
+
+
+#RSVP-page {
+    background-color: var(--bg-giftregistry);
+    min-height: 100vh;
+    min-height: 100svh;
+    width: 100%;
+    padding: clamp(2rem, 5vh, 4rem) 0;
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--txt-color-wheat);
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+/* ========================================================
    UTILITY CLASSES
 ========================================================= */
 @media (hover: none) and (pointer: coarse) {
