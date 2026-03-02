@@ -128,6 +128,23 @@ section {
 
 
 /* ========================================================
+   SAFARI iOS VIEWPORT FIX
+========================================================= */
+@supports (-webkit-touch-callout: none) {
+    body {
+        min-height: 100vh;
+        min-height: -webkit-fill-available;
+    }
+    
+    section {
+        min-height: 100vh !important;
+        min-height: 100svh !important;
+        min-height: -webkit-fill-available !important;
+    }
+}
+
+
+/* ========================================================
    SECTION 1: LANDING PAGE
    Mobile (320px) → Tablet (768px) → Laptop (1024px) → Desktop (1920px) → 4K (2560px+)
 ========================================================= */
