@@ -93,3 +93,23 @@
         transform: scale(1);
     }
 }
+
+/* Disable animations on mobile */
+@media (max-width: 767px) {
+    .fade-in,
+    .fade-in-left,
+    .fade-in-right,
+    .fade-in-scale,
+    .fade-in-scale-special,
+    .fade-in-delay-1,
+    .fade-in-delay-2,
+    .fade-in-delay-3,
+    .fade-in-delay-4,
+    .fade-in-delay-5,
+    .fade-in-no-y {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+        animation: none !important;
+    }
+}

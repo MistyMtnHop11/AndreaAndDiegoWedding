@@ -28,6 +28,8 @@
         <a href="details.html">Wedding Details</a>
         <a href="the-deets.html">Travel Info</a>
         <a href="registry.html">Gift Registry</a>
+        <a href="FAQ.html">FAQs</a>
+        <a href="RSVP.html">RSVP</a>
     </nav>
     
     <div class="menu-overlay"></div>
@@ -35,14 +37,15 @@
 
     <!-- RSVP Section -->
     <section id="RSVP-page">
-        <div class="container-fluid h-100">
+        <div class="container-fluid h-100 g-0">
             <div class="row align-items-stretch h-100 g-0">
+                <!-- Text Column -->
                 <div class="col-12 col-md-6 order-2 order-md-1 rsvp-text-column">
                     <p class="fade-in-delay-1 fade-in-no-y" id="rsvpTitle">Please RSVP with us by November 15,2026.</p>
-                    <button class="rsvp-btn-open" onclick="openRSVPModal()">RSVP Now</button>
+                    <button class="fade-in-delay-2 fade-in-no-y rsvp-btn-open" onclick="openRSVPModal()">RSVP Now</button>
                 </div>
-                
-                <div class="col-12 col-md-6 order-1 order-md-2 rsvp-image-column">
+                <!--Image Column-->
+                <div class="col-12 col-md-6 order-1 order-md-2 rsvp-image-column g-0">
                     <div class="rsvp-image-container">
                         <img src="assets/ring.jpeg" alt="RSVP Image" class="img-fluid">
                     </div>
@@ -50,6 +53,8 @@
             
         </div>
     </section>
+
+    <!-- RSVP Modal -->
     <div id="rsvpModal" class="rsvp-modal">
         <div class="rsvp-modal-content">
             <span class="rsvp-close" onclick="closeRSVPModal()">&times;</span>
@@ -83,32 +88,41 @@
                         <option value="false">Regretfully Decline</option>
                     </select>
                 </div>
-                
-                <div class="form-group">
-                    <label for="modal_number_of_guests">Number of Guests *</label>
-                    <input type="number" id="modal_number_of_guests" name="number_of_guests" min="1" max="10" value="1" required>
+                <div id="acceptRSVP" style="display: none;">
+                    <div class="form-group">
+                        <label for="modal_number_of_guests">Number of Guests *(including yourself)</label>
+
+                        <select name="modal_guest_count" id="modal_number_of_guests" required></select>
+                        <!-- <input type="number" id="modal_number_of_guests" name="number_of_guests" min="1" max="10" value="1" required> -->
+                    </div>
+                    <div id="guestsNamesFields"></div>
+                    <div class="form-group">
+                        <label for="modal_dinner">Will you attend the Welcome Dinner on Thursday, February 18th, 2027 at 6 PM?</label>
+                        <select name="attend_dinner" id="modal_dinner" required>
+                            <option value="">Please select...</option>
+                            <option value="true">Yes, I'll be there!</option>
+                            <option value="false">No, I won't be able to make it.</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="modal_dietary_restrictions">Dietary Restrictions</label>
+                        <textarea id="modal_dietary_restrictions" name="dietary_restrictions" placeholder="Please let us know of any allergies or dietary needs..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="modal_message">Message to the Couple</label>
+                        <textarea id="modal_message" name="message" placeholder="We'd love to hear from you..."></textarea>
+                    </div>
                 </div>
                 
-                <div class="form-group">
-                    <label for="modal_plus_one_name">Plus One Name (if applicable)</label>
-                    <input type="text" id="modal_plus_one_name" name="plus_one_name">
-                </div>
-                
-                <div class="form-group">
-                    <label for="modal_dietary_restrictions">Dietary Restrictions</label>
-                    <textarea id="modal_dietary_restrictions" name="dietary_restrictions" placeholder="Please let us know of any allergies or dietary needs..."></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label for="modal_message">Message to the Couple</label>
-                    <textarea id="modal_message" name="message" placeholder="We'd love to hear from you..."></textarea>
-                </div>
                 
                 <button type="submit" class="submit-btn" id="modalSubmitBtn">Submit RSVP</button>
             </form>
         </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/main.js"></script>
     <script type="module" src="js/rsvp-modal.js"></script>
 </body>

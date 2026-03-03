@@ -219,6 +219,27 @@ section {
     margin-top: 0.5rem;
     white-space: nowrap;
 }
+
+@media (max-width: 767px) {
+    #landingPage {
+        padding-top: 15vh;
+    }
+    
+    #thelogo {
+        max-width: 60px !important;
+    }
+    
+    #landing-font {
+        font-size: clamp(2rem, 6vw, 5rem); /* Smaller for mobile */
+    }
+    
+    #landing-font-second {
+        font-size: clamp(1.8rem, 5vw, 3rem); /* Same smaller size */
+        letter-spacing: 0.03em; /* Slightly tighter for mobile */
+        margin-left: -.5em;
+    }
+}
+
 /* Small Tablets & Laptops (768px - 1023px) - iPad, 10-11" laptops */
 @media (min-width: 768px) and (max-width: 1023px) {
     #landingPage {
@@ -228,6 +249,7 @@ section {
     #thelogo {
         max-width: 70px !important;
     }
+    
 }
 
 /* Medium Laptops (1024px - 1439px) - 13" MacBook Air, most laptops */
@@ -469,10 +491,42 @@ section {
     margin-bottom: clamp(0.25rem, 0.5vh, 0.4rem);
 }
 
+@media (max-width: 767px) {
+
+    
+    .specDayGreenBox {
+        padding: clamp(1.5rem, 3vh, 3rem) clamp(1rem, 2vw, 2rem);
+    }
+    
+    .ourDay-title {
+        font-size: clamp(3rem, 7vw, 5rem);
+    }
+    
+    .special-day-text {
+        font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+        line-height: 1.6;
+        margin-bottom: clamp(0.8rem, 2vh, 1.5rem);
+    }
+
+    .special-day-text:nth-child(2) {
+        text-indent: 1em;
+    }
+    
+    .special-day-signature {
+        font-size: clamp(1.2rem, 4vw, 1.8rem);
+        margin-top: clamp(0.8rem, 2vh, 1.5rem);
+    }
+    
+    .special-day-content {
+        max-width: 100%;
+    }
+}
+
 @media (min-width: 768px) {
     #ourSpecialDay {
         background-attachment: fixed;
     }
+
 }
 
 /* Short laptops (1024px-1441px, height < 900px) - 13" MacBook Air preserved */
@@ -622,7 +676,22 @@ section {
 .wedding-icon {
     width: clamp(100px, 10vw, 160px); /* Keep your sizes */
     height: clamp(150px, 10vw, 160px);
+    margin-bottom: 4em;
 }
+
+@media (max-width: 767px) {
+    .wedding-icon {
+        width: clamp(200px, 10vw, 160px);
+        height: clamp(150px, 10vw, 160px);
+        margin: 3em;
+        margin-bottom: 4em;
+    }
+
+    .wedding-details-subtitle {
+        margin-top: -1em;;
+    }
+}
+
 
 /* MacBook Air Specific (1024px-1439px, height 800-900px) */
 @media (min-width: 1024px) and (max-width: 1441px) {
@@ -1055,6 +1124,10 @@ section {
         width: clamp(120px, 50vw, 200px);
     }
     
+    .gift-paragraph-main {
+        margin-top: -2em;
+    }
+
     .gift-paragraph,
     .gift-paragraph-main {
         max-width: 100%;
@@ -1163,7 +1236,9 @@ section {
         border: none;
         border-top: 1px solid #493a24;
         width: 100px;
-        margin: var(--spacing-xs) auto;
+        /* margin: var(--spacing-xs) auto; */
+        margin-top: -.5em;
+        margin-bottom: 1.5em;
         opacity: 0.4;
 }
 
@@ -1183,12 +1258,118 @@ section {
     min-height: 100vh;
     min-height: 100svh;
     width: 100%;
-    padding: clamp(2rem, 5vh, 4rem) 0;
     font-family: 'Cormorant Garamond', serif;
     color: var(--txt-color-wheat);
     text-align: center;
     display: flex;
     align-items: center;
+}
+
+#RSVPpage .container-fluid {
+    padding:0!important;
+}
+
+#RSVP-page .row {
+    margin: 0 !important;
+}
+
+#RSVP-page .col-md-6 {
+    padding: 0 !important;
+}
+
+#rsvpTitle{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4.5vw, 5rem);
+    margin-bottom: -0.5rem;
+    line-height: 1;
+    letter-spacing: 0.02em;
+}
+
+.rsvp-btn-open{
+    margin: 3em;
+    
+}
+
+/* Text Column */
+.rsvp-text-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: clamp(2rem, 5vh, 4rem) clamp(1.5rem, 3vw, 3rem);
+}
+/* Image Column */
+.rsvp-image-column{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    height: 100vh;
+    height: 100svh;
+}
+
+.rsvp-image-container{
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+}
+
+.rsvp-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right center;
+    display: block;
+}
+
+/* Mobile - Stack vertically */
+@media (max-width: 767px) {
+    
+    #RSVP-page {
+        padding: 0!important;
+        align-items: flex-start !important; /* Align to top instead of center */
+    }
+
+    
+    .rsvp-image-column {
+        height: 50vh !important; /* Half screen on mobile */
+        min-height: 300px;
+        padding: 0 !important; /* Force remove padding */
+        align-self: flex-start;
+    }
+
+    .rsvp-image-container {
+        width: 100vw; /* Full viewport width */
+        height: 100%;
+        margin-left: calc(-50vw + 50%); /* Center and expand beyond container */
+    }
+
+    .rsvp-image-column img {
+        object-position: 70% center; /* Center on mobile */
+        object-fit: stretch;
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .rsvp-text-column {
+        margin-top: 5em;
+        padding: clamp(2rem, 5vh, 3rem) clamp(1.5rem, 3vw, 2rem);
+    }
+}
+
+/* Desktop - Side by side */
+@media (min-width: 768px) {
+    #RSVP-page .row {
+        height: 100vh;
+        height: 100svh;
+    }
+    
+    .rsvp-image-column,
+    .rsvp-text-column {
+        height: 100vh;
+        height: 100svh;
+    }
 }
 
 /* ========================================================

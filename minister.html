@@ -23,7 +23,7 @@
         }
         
         .admin-title {
-            font-family: 'Citadel Script', cursive;
+            font-family: 'Cormorant Garamond', serif;
             font-size: 3rem;
             color: #36350b;
             text-align: center;
@@ -165,6 +165,10 @@
                     <div class="stat-number" id="totalGuests">0</div>
                     <div class="stat-label">Total Guests</div>
                 </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="dinnerGuests">0</div>
+                    <div class="stat-label">Dinner Guests</div>
+                </div>
             </div>
             
             <button class="export-btn" onclick="exportToCSV()">📥 Export to CSV</button>
@@ -180,6 +184,7 @@
                         <th>Plus One</th>
                         <th>Dietary</th>
                         <th>Message</th>
+                        <th>Attend Dinner</th>
                         <th>Submitted</th>
                     </tr>
                 </thead>

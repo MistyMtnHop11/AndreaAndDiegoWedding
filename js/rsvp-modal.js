@@ -1,4 +1,56 @@
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+const number_of_guests = document.getElementById('modal_number_of_guests');
+const guestsNamesFields = document.getElementById('guestsNamesFields');
+
+const selectList = document.getElementById('modal_number_of_guests');
+const maxGuests = 10; // Set maximum number of guests
+let numberOfGuests = 0;
+
+// Default PlaceHolder option
+const placeholderOption = document.createElement('option');
+placeholderOption.value = '';
+placeholderOption.textContent = 'Please Select...';
+placeholderOption.disabled = true;
+placeholderOption.selected = true;
+selectList.appendChild(placeholderOption);
+
+for (let i = 1; i <= maxGuests; i++) {
+    const option = document.createElement('option');
+    option.value = i;
+    option.textContent = i;
+    selectList.appendChild(option);
+}
+
+modal_attending.addEventListener('change', function() {
+    if (this.value === 'true') {
+        $('#acceptRSVP').show();
+        $('#modal_number_of_guests').attr('required', true);
+        $('#modal_dinner').attr('required', true);
+    } else {
+        $('#modal_number_of_guests').attr('required', false);
+        $('#modal_dinner').attr('required', false);
+        $('#modal_number_of_guests').val('');
+        $('#acceptRSVP').hide();
+    }
+});
+
+number_of_guests.addEventListener('change', function() {
+    //clear previous fields
+    guestsNamesFields.innerHTML = '';
+
+    const selectedValue = this.value;
+    let newFields = '';
+    for (let i = 0; i < selectedValue; i++) {
+        newFields += `
+            <div class="form-group">
+                <label for="guest_name_${i}">Guest Name ${i+1}</label>
+                <input class="guest-name-input" type="text" id="guest_name_${i}" name="guest_name_${i}" required>
+            </div>
+        `;
+    }
+    guestsNamesFields.innerHTML = newFields;
+    numberOfGuests = selectedValue;
+});
 
 // Initialize Supabase
 const SUPABASE_URL = 'https://dedxsbgrruwnrhzcevjg.supabase.co' // Replace
@@ -52,14 +104,19 @@ form.addEventListener('submit', async (e) => {
     
     // Get form data
     const formData = new FormData(form)
+
+    const guestInputs = document.querySelectorAll('.guest-name-input')
+    const guestNames = Array.from(guestInputs).map(input => input.value.trim()).filter(name => name !== '')
+
     const rsvpData = {
         full_name: formData.get('full_name'),
         email: formData.get('email'),
         attending: formData.get('attending') === 'true',
-        number_of_guests: parseInt(formData.get('number_of_guests')),
-        plus_one_name: formData.get('plus_one_name') || null,
+        number_of_guests: parseInt(numberOfGuests) || 0,
+        plus_one_name: guestNames.length > 0 ? guestNames : null,
         dietary_restrictions: formData.get('dietary_restrictions') || null,
-        message: formData.get('message') || null
+        message: formData.get('message') || null,
+        attend_dinner: formData.get('attend_dinner') === 'true'
     }
     
     // Insert into Supabase
@@ -85,4 +142,11 @@ form.addEventListener('submit', async (e) => {
             submitBtn.disabled = false
         }, 3000)
     }
+
+    $('#modal_number_of_guests').attr('required', false);
+    $('#modal_dinner').attr('required', false);
+    $('#modal_number_of_guests').val('');
+    $('#acceptRSVP').hide();
+
 })
+
