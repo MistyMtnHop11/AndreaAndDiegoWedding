@@ -219,6 +219,13 @@ section {
     margin-top: 0.5rem;
     white-space: nowrap;
 }
+#countdown {
+    font-family: 'Optimal', sans-serif;
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    color: #36350b;
+    text-align: center;
+    margin-top: 1rem;
+}
 
 @media (max-width: 767px) {
     #landingPage {
@@ -230,13 +237,16 @@ section {
     }
     
     #landing-font {
-        font-size: clamp(2rem, 6vw, 5rem); /* Smaller for mobile */
+        font-size: clamp(1.8rem, 5.8vw, 4.8rem); /* Smaller for mobile */
     }
     
     #landing-font-second {
         font-size: clamp(1.8rem, 5vw, 3rem); /* Same smaller size */
         letter-spacing: 0.03em; /* Slightly tighter for mobile */
-        margin-left: -.5em;
+        margin-left: -1em;
+    }
+    #countdown {
+        font-size: clamp(1.3rem, 4.3vw, 2.3rem);
     }
 }
 
@@ -275,6 +285,10 @@ section {
         flex: 0 0 90% !important;
         max-width: 90% !important;
     }
+
+    #countdown {
+        font-size: clamp(1rem, 3vw, 2rem);
+    }
 }
 
 /* Large Laptops & Desktops (1440px - 1919px) - 15-16" MacBook, 24" monitors */
@@ -286,6 +300,14 @@ section {
     #thelogo {
         max-width: 120px !important;
     }
+    #landing-font {
+        font-size: clamp(3rem, 6vw, 7rem); /* Bigger */
+    }
+    #landing-font-second {
+        font-size: clamp(3rem, 6vw, 7rem); /* Same size */
+        letter-spacing: 0.03em; /* Slightly tighter to fit */
+        margin-left: -1em;
+    }
 }
 
 /* Large Desktops (1920px - 2559px) - 27" iMac, 1080p/1440p monitors */
@@ -296,6 +318,15 @@ section {
     
     #thelogo {
         max-width: 150px !important;
+    }
+
+    #landing-font {
+        font-size: clamp(3.5rem, 6vw, 8rem); /* Bigger */
+    }
+    #landing-font-second {
+        font-size: clamp(3.5rem, 6vw, 8rem); /* Same size */
+        letter-spacing: 0.03em; /* Slightly tighter to fit */
+        margin-left: -1em;
     }
 }
 
@@ -312,6 +343,15 @@ section {
     #landingPage > .container-fluid {
         max-width: 2200px;
         margin: 0 auto;
+    }
+
+    #landing-font {
+        font-size: clamp(4rem, 5vw, 8rem); /* Bigger but capped */
+    }
+    #landing-font-second {
+        font-size: clamp(4rem, 5vw, 8rem); /* Same size */
+        letter-spacing: 0.03em; /* Slightly tighter to fit */
+        margin-left: -.5em;
     }
 }
 
