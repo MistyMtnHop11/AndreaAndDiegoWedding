@@ -154,7 +154,7 @@ section {
  
 /* Global “don’t let bottom Safari UI cover content” padding */
 .ios-webkit body {
-  padding-bottom: calc(env(safe-area-inset-bottom) + var(--bottom-ui, 0px) + 42px);
+  padding-bottom: calc(env(safe-area-inset-bottom) + var(--bottom-ui, 0px) + 300px);
 }
  
 /* If you have a fixed bottom nav, pad the content instead of body */
