@@ -7,7 +7,7 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 
 // Simple password protection (change this!)
-const ADMIN_PASSWORD = 'RogueCoyote2026!@#' // CHANGE THIS!
+const ADMIN_PASSWORD = '#Cookie41' // CHANGE THIS!
 
 // Check password
 window.checkPassword = function() {
