@@ -134,14 +134,14 @@ section {
     body {
         min-height: 100vh;
 
-        min-height: 100svh;
+        min-height: 100dvh;
         min-height: calc(var(--vh, 1vh) * 100); 
         min-height: -webkit-fill-available;
     }
     
     section {
         min-height: 100vh !important;
-        min-height: 100svh !important;
+        min-height: 100dvh !important;
         min-height: -webkit-fill-available !important;
     }
 }
@@ -158,7 +158,7 @@ section {
     background-position: center;
     background-repeat: no-repeat;
     min-height: 100vh;
-    min-height: 100svh;
+    min-height: 100dvh;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -232,7 +232,7 @@ section {
 
 @media (max-width: 767px) {
     #landingPage {
-        min-height: 100svh;
+        min-height: 100dvh;
         padding-top: 15vh;
     }
     
@@ -366,7 +366,7 @@ section {
 #wherewhen {
     background-color: var(--bg-wherewhen);
     min-height: 100vh;
-    min-height: 100svh;
+    min-height: 100dvh;
     width: 100%;
     padding: var(--spacing-lg) 0;
     font-family: 'The Seasons-LT', cursive;
@@ -472,7 +472,7 @@ section {
     background-repeat: no-repeat;
     background-attachment: scroll;
     min-height: 100vh;
-    min-height: 100svh;
+    min-height: 100dvh;
     width: 100%;
     display: flex;
     align-items: center;
@@ -639,7 +639,7 @@ section {
 #theWeddingDetails {
     background-color: var(--bg-greens-solid);
     min-height: 100vh;
-    min-height: 100svh;
+    min-height: 100dvh;
     width: 100%;
     padding: clamp(1.5rem, 3vh, 3rem) 0; /* Reduced padding */
     font-family: 'Cormorant Garamond', serif;
@@ -725,7 +725,7 @@ section {
 
 @media (max-width: 767px) {
     #theWeddingDetails {
-        min-height: 100svh;
+        min-height: 100dvh;
     }
     .wedding-icon {
         width: clamp(200px, 10vw, 160px);
@@ -827,7 +827,7 @@ section {
 #the-deets {
     background-color: var(--bg-wherewhen);
     min-height: 100vh;
-    min-height: 100svh;
+    min-height: 100dvh;
     width: 100%;
     padding: 0;
     font-family: 'Cormorant Garamond', serif;
@@ -840,7 +840,7 @@ section {
     #the-deets {
         display: flex;
         flex-direction: column;
-        min-height: 100svh;
+        min-height: 100dvh;
     }
     
     .image-columnA {
@@ -918,7 +918,7 @@ section {
     .image-columnA {
         flex: 0 0 50%;
         height: 100vh;
-        height: 100svh;
+        height: 100dvh;
         padding: 0!important;
         margin: 0!important;
     }
@@ -945,7 +945,7 @@ section {
         justify-content: center;
         align-items: center;
         height: 100vh;
-        height: 100svh;
+        height: 100dvh;
         overflow-y: auto;
     }
     
@@ -1065,7 +1065,7 @@ section {
 #giftRegistry {
     background-color: var(--bg-giftregistry);
     min-height: 100vh;
-    min-height: 100svh;
+    min-height: 100dvh;
     width: 100%;
     padding: clamp(2rem, 5vh, 4rem) 0;
     font-family: 'Cormorant Garamond', serif;
@@ -1160,7 +1160,7 @@ section {
 
 @media (max-width: 767px) {
     #giftRegistry {
-        min-height: 100svh;
+        min-height: 100dvh;
     }
     .gift-left-column {
         padding: var(--spacing-md);
@@ -1241,7 +1241,7 @@ section {
 #FAQ {
     background-color: var(--bg-wherewhen);
     min-height: 100vh;
-    min-height: 100svh;
+    min-height: 100dvh;
     width: 100%;
     padding: clamp(2rem, 5vh, 4rem) 0;
     font-family: 'Cormorant Garamond', serif;
@@ -1307,7 +1307,7 @@ section {
 #RSVP-page {
     background-color: var(--bg-giftregistry);
     min-height: 100vh;
-    min-height: 100svh;
+    min-height: 100dvh;
     width: 100%;
     font-family: 'Cormorant Garamond', serif;
     color: var(--txt-color-wheat);
@@ -1356,7 +1356,7 @@ section {
     align-items: center;
     padding: 0;
     height: 100vh;
-    height: 100svh;
+    height: 100dvh;
 }
 
 .rsvp-image-container{
@@ -1377,7 +1377,7 @@ section {
 @media (max-width: 767px) {
     
     #RSVP-page {
-        min-height: 100svh;
+        min-height: 100dvh;
         padding: 0!important;
         align-items: flex-start !important; /* Align to top instead of center */
     }
@@ -1414,13 +1414,13 @@ section {
 @media (min-width: 768px) {
     #RSVP-page .row {
         height: 100vh;
-        height: 100svh;
+        height: 100dvh;
     }
     
     .rsvp-image-column,
     .rsvp-text-column {
         height: 100vh;
-        height: 100svh;
+        height: 100dvh;
     }
 }
 
