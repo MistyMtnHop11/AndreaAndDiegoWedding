@@ -724,8 +724,13 @@ section {
 }
 
 @media (max-width: 767px) {
+    #body {
+        background-color: var(--bg-greens-solid);
+    }
     #theWeddingDetails {
-        min-height: 100dvh;
+        min-height: 100dvh!important;
+        padding:clamp(1.5rem, 3vh, 3rem) 0; 
+        margin-bottom: 3em;
     }
     .wedding-icon {
         width: clamp(200px, 10vw, 160px);
@@ -736,6 +741,10 @@ section {
 
     .wedding-details-subtitle {
         margin-top: -1em;;
+    }
+
+    .wedding-details-subentry :last-child {
+        margin-bottom: 3em;
     }
 }
 
