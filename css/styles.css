@@ -133,6 +133,9 @@ section {
 @supports (-webkit-touch-callout: none) {
     body {
         min-height: 100vh;
+
+        min-height: 100svh;
+        min-height: calc(var(--vh, 1vh) * 100); 
         min-height: -webkit-fill-available;
     }
     
@@ -229,6 +232,7 @@ section {
 
 @media (max-width: 767px) {
     #landingPage {
+        min-height: 100svh;
         padding-top: 15vh;
     }
     
@@ -720,6 +724,9 @@ section {
 }
 
 @media (max-width: 767px) {
+    #theWeddingDetails {
+        min-height: 100svh;
+    }
     .wedding-icon {
         width: clamp(200px, 10vw, 160px);
         height: clamp(150px, 10vw, 160px);
@@ -833,6 +840,7 @@ section {
     #the-deets {
         display: flex;
         flex-direction: column;
+        min-height: 100svh;
     }
     
     .image-columnA {
@@ -1151,6 +1159,9 @@ section {
 }
 
 @media (max-width: 767px) {
+    #giftRegistry {
+        min-height: 100svh;
+    }
     .gift-left-column {
         padding: var(--spacing-md);
         margin-bottom: var(--spacing-md);
@@ -1366,6 +1377,7 @@ section {
 @media (max-width: 767px) {
     
     #RSVP-page {
+        min-height: 100svh;
         padding: 0!important;
         align-items: flex-start !important; /* Align to top instead of center */
     }

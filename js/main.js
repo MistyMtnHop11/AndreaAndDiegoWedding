@@ -127,3 +127,17 @@ var intervalTime = setInterval(function() {
         document.getElementById("countdown").innerHTML = "...And they lived happily ever after!";
     }
 }, 1000);
+
+/* ========================================================
+   SAFARI FUNCTIONALITY FIXES
+========================================================= */
+
+function setVH() {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+setVH();
+
+window.addEventListener('resize', setVH);
+window.addEventListener('orientationchange', setVH);
