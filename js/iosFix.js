@@ -38,6 +38,7 @@
  
   // Initial
   update();
+  console.alert("iOS WebKit detected: applying viewport height fixes. If you see visual glitches, please report them to the couple!");
  
   // Update on events that change toolbar / viewport
   window.addEventListener("resize", scheduleUpdate, { passive: true });
