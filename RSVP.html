@@ -97,12 +97,17 @@
                     </div>
                     <div id="guestsNamesFields"></div>
                     <div class="form-group">
-                        <label for="modal_dinner">Will you attend the Welcome Dinner on Thursday, February 18th, 2027 at 6 PM?</label>
+                        <label for="modal_dinner">Will you or some of your group attend the Welcome Dinner on Thursday, February 18th, 2027 at 6 PM?</label>
                         <select name="attend_dinner" id="modal_dinner" required>
                             <option value="">Please select...</option>
-                            <option value="true">Yes, I'll be there!</option>
-                            <option value="false">No, I won't be able to make it.</option>
+                            <option value="true">Yes, we'll be there!</option>
+                            <option value="false">No, we won't be able to make it.</option>
                         </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dinnerPop">How many of your group will attend?</label>
+                        <select name="modal_dinner_count" id="dinnerpop" required></select>
                     </div>
                     
                     <div class="form-group">
@@ -123,6 +128,8 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <script src="js/iosFix.js?v=2"></script>
     <script src="js/main.js"></script>
     <script type="module" src="js/rsvp-modal.js"></script>
 </body>

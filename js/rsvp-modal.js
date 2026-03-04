@@ -1,10 +1,13 @@
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
 const number_of_guests = document.getElementById('modal_number_of_guests');
 const guestsNamesFields = document.getElementById('guestsNamesFields');
+const dinner_guests = document.getElementById('dinnerpop');
 
 const selectList = document.getElementById('modal_number_of_guests');
+const dinnerList = document.getElementById('dinnerpop');
 const maxGuests = 10; // Set maximum number of guests
 let numberOfGuests = 0;
+let numberOfDinnerGuests = 0;
 
 // Default PlaceHolder option
 const placeholderOption = document.createElement('option');
@@ -13,6 +16,7 @@ placeholderOption.textContent = 'Please Select...';
 placeholderOption.disabled = true;
 placeholderOption.selected = true;
 selectList.appendChild(placeholderOption);
+dinnerList.appendChild(placeholderOption);
 
 for (let i = 1; i <= maxGuests; i++) {
     const option = document.createElement('option');
@@ -26,13 +30,25 @@ modal_attending.addEventListener('change', function() {
         $('#acceptRSVP').show();
         $('#modal_number_of_guests').attr('required', true);
         $('#modal_dinner').attr('required', true);
+        $('#dinnerpop').attr('required', true);
     } else {
         $('#modal_number_of_guests').attr('required', false);
         $('#modal_dinner').attr('required', false);
+        $('#dinnerpop').attr('required', false);
         $('#modal_number_of_guests').val('');
         $('#acceptRSVP').hide();
     }
 });
+
+modal_dinner.addEventListener('change', function() {
+    if (this.value === 'true'){
+        $('#dinnerpop').prop("disabled", false);
+    } else {
+        $('#dinnerpop').prop("disabled", true);
+    }
+})
+
+
 
 number_of_guests.addEventListener('change', function() {
     //clear previous fields
@@ -50,13 +66,76 @@ number_of_guests.addEventListener('change', function() {
     }
     guestsNamesFields.innerHTML = newFields;
     numberOfGuests = selectedValue;
+
+    
+    dinnerList.innerHTML = '';
+    dinnerList.appendChild(placeholderOption.cloneNode(true));
+    
+    for (let i = 1; i <= numberOfGuests; i++){
+        // console.log(i);
+        const optionDinner = document.createElement('option');
+        optionDinner.value = i;
+        optionDinner.textContent = i;
+        dinnerList.appendChild(optionDinner);
+    }
+
 });
+
+dinner_guests.addEventListener('change', function() {
+    numberOfDinnerGuests = this.value;
+    console.log(numberOfDinnerGuests);
+})
+
+
 
 // Initialize Supabase
 const SUPABASE_URL = 'https://dedxsbgrruwnrhzcevjg.supabase.co' // Replace
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRlZHhzYmdycnV3bnJoemNldmpnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI0ODA1OTMsImV4cCI6MjA4ODA1NjU5M30.DJR7EO9mzeLqwf2RnL0W2abXvohieY5qDnf_tdf8xBI' // Replace
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+
+function resetRSVPForm() {
+  // Reset the form fields
+  form.reset();
+
+  // Clear dynamic guest name inputs
+  guestsNamesFields.innerHTML = '';
+
+  // Reset counters
+  numberOfGuests = 0;
+  numberOfDinnerGuests = 0;
+
+  // Reset dinner dropdown completely
+  dinnerList.innerHTML = '';
+  
+  const placeholder = document.createElement('option');
+  placeholder.value = '';
+  placeholder.textContent = 'Please Select...';
+  placeholder.disabled = true;
+  placeholder.selected = true;
+  dinnerList.appendChild(placeholder);
+
+  // Disable dinner select again
+  $('#dinnerpop')
+    .prop('disabled', true)
+    .prop('required', false);
+
+  // Remove required flags
+  $('#modal_number_of_guests').prop('required', false).val('');
+  $('#modal_dinner').prop('required', false);
+
+  // Hide conditional section
+  $('#acceptRSVP').hide();
+
+  // Reset submit button + messages
+  submitBtn.disabled = false;
+  submitBtn.textContent = 'Submit RSVP';
+  successMessage.style.display = 'none';
+  errorMessage.style.display = 'none';
+}
+
+
+
 
 // Open modal
 window.openRSVPModal = function() {
@@ -68,6 +147,7 @@ window.openRSVPModal = function() {
 window.closeRSVPModal = function() {
     document.getElementById('rsvpModal').style.display = 'none'
     document.body.style.overflow = '' // Re-enable scrolling
+    resetRSVPForm();
 }
 
 // Close modal when clicking outside
@@ -116,7 +196,8 @@ form.addEventListener('submit', async (e) => {
         plus_one_name: guestNames.length > 0 ? guestNames : null,
         dietary_restrictions: formData.get('dietary_restrictions') || null,
         message: formData.get('message') || null,
-        attend_dinner: formData.get('attend_dinner') === 'true'
+        attend_dinner: formData.get('attend_dinner') === 'true',
+        dinner_pop: parseInt(numberOfDinnerGuests) || 0
     }
     
     // Insert into Supabase
@@ -143,10 +224,11 @@ form.addEventListener('submit', async (e) => {
         }, 3000)
     }
 
-    $('#modal_number_of_guests').attr('required', false);
-    $('#modal_dinner').attr('required', false);
-    $('#modal_number_of_guests').val('');
-    $('#acceptRSVP').hide();
+    // $('#modal_number_of_guests').attr('required', false);
+    // $('#modal_dinner').attr('required', false);
+    // $('#dinnerpop').attr('required', false);
+    // $('#modal_number_of_guests').val('');
+    // $('#acceptRSVP').hide();
 
 })
 

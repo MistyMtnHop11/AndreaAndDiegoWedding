@@ -41,9 +41,12 @@ async function loadRSVPs() {
     const totalGuests = rsvps
         .filter(r => r.attending)
         .reduce((sum, r) => sum + r.number_of_guests, 0)
-    const dinnerGuests = rsvps.reduce(
-        (total, r) => total + (r.attend_dinner ? r.number_of_guests : 0), 0
-    );
+    const dinnerGuests = rsvps
+        .filter(r => r.attending)
+        .reduce((sum, r) => sum + r.dinner_pop, 0)
+    // const dinnerGuests = rsvps.reduce(
+    //     (total, r) => total + (r.attend_dinner ? r.number_of_guests : 0), 0
+    // );
     // const dinnerGuests = rsvps.filter(r => r.attend_dinner).length
     
     // Update stats
@@ -79,6 +82,7 @@ async function loadRSVPs() {
             <td>${rsvp.dietary_restrictions || '-'}</td>
             <td>${rsvp.message || '-'}</td>
             <td>${rsvp.attend_dinner ? 'YES' : 'NO'}</td>
+            <td>${rsvp.dinner_pop}</td>
             <td>${new Date(rsvp.created_at).toLocaleDateString()}</td>
         `
         tbody.appendChild(row)
@@ -98,7 +102,7 @@ window.exportToCSV = async function() {
     }
     
     // Create CSV content
-    const headers = ['Name', 'Email', 'Attending', 'Guests', 'Plus One', 'Dietary', 'Message', 'Date']
+    const headers = ['Name', 'Email', 'Attending', 'Guests', 'Plus One', 'Dietary', 'Message', 'Dinner', 'DinnerGuests', 'Date']
     const rows = rsvps.map(r => [
         r.full_name,
         r.email,
@@ -107,6 +111,8 @@ window.exportToCSV = async function() {
         r.plus_one_name || '',
         r.dietary_restrictions || '',
         r.message || '',
+        r.attend_dinner ? 'YES' : 'NO',
+        r.dinner_pop,
         new Date(r.created_at).toLocaleDateString()
     ])
     
