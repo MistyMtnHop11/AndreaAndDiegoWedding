@@ -36,7 +36,7 @@
   // Initial + stabilize after layout
   update();
   requestAnimationFrame(update);
-  console.alert("Told you so.")
+  alert("Told you so.");
  
   // Updates on viewport/toolbars/keyboard changes
   window.addEventListener("resize", scheduleUpdate, { passive: true });
