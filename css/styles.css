@@ -639,7 +639,7 @@ section {
 #theWeddingDetails {
     background-color: var(--bg-greens-solid);
     min-height: 100vh;
-    min-height: 100dvh;
+    min-height: auto;
     width: 100%;
     padding: clamp(1.5rem, 3vh, 3rem) 0; /* Reduced padding */
     font-family: 'Cormorant Garamond', serif;
@@ -728,9 +728,12 @@ section {
         background-color: var(--bg-greens-solid);
     }
     #theWeddingDetails {
-        min-height: 100dvh!important;
-        padding:clamp(1.5rem, 3vh, 3rem) 0; 
-        margin-bottom: 150px;
+        min-height: auto;
+        padding: 2rem 0; 
+    }
+
+    .wedding-details-the {
+        margin-top: 4rem;
     }
     .wedding-icon {
         width: clamp(200px, 10vw, 160px);
