@@ -637,11 +637,22 @@ section {
     }
 }
 
+@media (min-width: 1600px) {
+    .specDayGreenBox {
+        max-width: 2560px !important;
+        padding: 15rem 8rem;
+    }
+    
+    .special-day-content {
+        max-width: 1000px;
+    }
+}
+
 /* Large Desktops & Ultra-Wide */
 @media (min-width: 1920px) {
     .specDayGreenBox {
-        max-width: 1300px;
-        padding: clamp(3.5rem, 6vh, 6rem) clamp(2.5rem, 3vw, 3.5rem);
+        max-width: 2560px !important;
+        padding: 15rem 8rem;
     }
     
     .special-day-content {
@@ -651,8 +662,8 @@ section {
 
 @media (min-width: 2560px) {
     .specDayGreenBox {
-        max-width: 1400px !important;
-        padding: 4rem 4rem;
+        max-width: 2560px !important;
+        padding: 15rem 8rem;
     }
     
     #ourSpecialDay > .container-fluid {
@@ -1263,7 +1274,36 @@ section {
     .gift-paragraph {
         max-width: 600px;
     }
+
+    .payment-area {
+        max-width: 600px;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .payment-title,
+    .qr-code-payment,
+    .payment-handle {
+        display: flex;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+        align-items: center;
+    }
 }
+
+/* @media (min-width: 1600px){
+    .gift-paragraph-main {
+        max-width: 1600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .gift-paragraph {
+        max-width: 600px;
+    }
+} */
 
 @media (min-width: 2560px) {
     #giftRegistry > .container-fluid {
@@ -1271,7 +1311,7 @@ section {
         margin: 0 auto;
     }
     .gift-paragraph-main {
-        max-width: 100px;
+        max-width: 1000px;
         margin-left: 5em;
     }
 }

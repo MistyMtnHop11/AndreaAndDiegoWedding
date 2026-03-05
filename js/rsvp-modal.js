@@ -56,17 +56,25 @@ number_of_guests.addEventListener('change', function() {
 
     const selectedValue = this.value;
     let newFields = '';
+
     for (let i = 0; i < selectedValue; i++) {
+        const isFirstGuest = i === 0;
         newFields += `
             <div class="form-group">
-                <label for="guest_name_${i}">Guest Name ${i+1}</label>
-                <input class="guest-name-input" type="text" id="guest_name_${i}" name="guest_name_${i}" required>
+                <label for="guest_name_${i}">Guest Name ${i+1}${isFirstGuest ? ' (You)' : ''}</label>
+                <input class="guest-name-input" 
+                    type="text" 
+                    id="guest_name_${i}" 
+                    name="guest_name_${i}" 
+                    ${isFirstGuest ? 'readonly' : ''}
+                    required>
             </div>
         `;
     }
     guestsNamesFields.innerHTML = newFields;
     numberOfGuests = selectedValue;
 
+    syncFullNameToFirstGuest();
     
     dinnerList.innerHTML = '';
     dinnerList.appendChild(placeholderOption.cloneNode(true));
@@ -80,6 +88,21 @@ number_of_guests.addEventListener('change', function() {
     }
 
 });
+
+function syncFullNameToFirstGuest() {
+    const fullNameInput = document.getElementById('modal_full_name');
+    const firstGuestInput = document.getElementById('guest_name_0');
+    
+    if (firstGuestInput && fullNameInput) {
+        firstGuestInput.value = fullNameInput.value;
+    }
+}
+
+// Sync when full name changes
+const fullNameInput = document.getElementById('modal_full_name');
+if (fullNameInput) {
+    fullNameInput.addEventListener('input', syncFullNameToFirstGuest);
+}
 
 dinner_guests.addEventListener('change', function() {
     numberOfDinnerGuests = this.value;

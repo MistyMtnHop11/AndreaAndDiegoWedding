@@ -85,7 +85,7 @@
 
 /* Modal Title */
 .rsvp-modal-title {
-    font-family: 'Citadel Script', cursive;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: clamp(2.5rem, 5vw, 4rem);
     color: #36350b;
     text-align: center;
