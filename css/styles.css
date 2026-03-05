@@ -567,6 +567,7 @@ section {
 
     
     .specDayGreenBox {
+        margin-top: 1em;
         padding: clamp(1.5rem, 3vh, 3rem) clamp(1rem, 2vw, 2rem);
     }
     
