@@ -1505,6 +1505,15 @@ section {
         height: 100vh;
         height: 100dvh;
     }
+
+    
+}
+
+@media (min-width: 2280px){
+    #rsvpTitle {
+        margin-left: 2em;
+        margin-right: 2em;
+    }
 }
 
 /* ========================================================
