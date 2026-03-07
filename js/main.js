@@ -108,7 +108,7 @@ document.addEventListener('keydown', (e) => {
 /* ========================================================
    COUNTDOWN TIMER FUNCTIONALITY
 ========================================================= */
-if(window.location.pathname.indexOf('index') > 0){
+if(window.location.pathname === '/'){
     var countDownDate = new Date("2027-02-19T13:00:00").getTime();
 
     var intervalTime = setInterval(function() {
