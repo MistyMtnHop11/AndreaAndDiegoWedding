@@ -294,7 +294,7 @@ section {
     
 }
 
-/* Medium Laptops (1024px - 1439px) - 13" MacBook Air, most laptops */
+/* Medium Laptops (1024px - 1441px) - 13" MacBook Air, most laptops */
 @media (min-width: 1024px) and (max-width: 1441px) {
     #landingPage {
         padding-top: 9vh;
@@ -310,6 +310,7 @@ section {
     #landing-font-second {
         font-size: clamp(2.5rem, 6vw, 6rem); /* Same size */
         letter-spacing: 0.03em; /* Slightly tighter to fit */
+        padding-left: 1em;
     }
     
     /* Widen container so text fits */
@@ -323,7 +324,7 @@ section {
     }
 }
 
-/* Large Laptops & Desktops (1440px - 1919px) - 15-16" MacBook, 24" monitors */
+/* Large Laptops & Desktops (1442px - 1919px) - 15-16" MacBook, 24" monitors */
 @media (min-width: 1440px) and (max-width: 1919px) {
     #landingPage {
         padding-top: 15vh;
