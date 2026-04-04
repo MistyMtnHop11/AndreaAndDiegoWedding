@@ -2,6 +2,8 @@ import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 const number_of_guests = document.getElementById('modal_number_of_guests');
 const guestsNamesFields = document.getElementById('guestsNamesFields');
 const dinner_guests = document.getElementById('dinnerpop');
+const modal_attending = document.getElementById('modal_attending');
+const modal_dinner = document.getElementById('modal_dinner');
 
 const selectList = document.getElementById('modal_number_of_guests');
 const dinnerList = document.getElementById('dinnerpop');
@@ -10,13 +12,20 @@ let numberOfGuests = 0;
 let numberOfDinnerGuests = 0;
 
 // Default PlaceHolder option
-const placeholderOption = document.createElement('option');
-placeholderOption.value = '';
-placeholderOption.textContent = 'Please Select...';
-placeholderOption.disabled = true;
-placeholderOption.selected = true;
-selectList.appendChild(placeholderOption);
-dinnerList.appendChild(placeholderOption);
+function createPlaceholder() {
+    const placeholderOption = document.createElement('option');
+    placeholderOption.value = '';
+    placeholderOption.textContent = 'Please Select...';
+    placeholderOption.disabled = true;
+    placeholderOption.selected = true;
+    return placeholderOption;
+}
+
+
+
+
+selectList.appendChild(createPlaceholder());
+dinnerList.appendChild(createPlaceholder());
 
 for (let i = 1; i <= maxGuests; i++) {
     const option = document.createElement('option');
@@ -25,31 +34,36 @@ for (let i = 1; i <= maxGuests; i++) {
     selectList.appendChild(option);
 }
 
+//Attending change handler
 modal_attending.addEventListener('change', function() {
+    const acceptRSVP = document.getElementById('acceptRSVP');
+
     if (this.value === 'true') {
-        $('#acceptRSVP').show();
-        $('#modal_number_of_guests').attr('required', true);
-        $('#modal_dinner').attr('required', true);
-        $('#dinnerpop').attr('required', true);
+        if (acceptRSVP) acceptRSVP.style.display = 'block';
+        modal_number_of_guests.required = true;
+        modal_dinner.required = true;
+        dinner_guests.required = true;
     } else {
-        $('#modal_number_of_guests').attr('required', false);
-        $('#modal_dinner').attr('required', false);
-        $('#dinnerpop').attr('required', false);
-        $('#modal_number_of_guests').val('');
-        $('#acceptRSVP').hide();
+        if (acceptRSVP) acceptRSVP.style.display = 'none';
+        modal_number_of_guests.required = false;
+        modal_dinner.required = false;
+        dinner_guests.required = false;
+        modal_number_of_guests.value = '';
     }
 });
 
+//Dinner attendance change handler
 modal_dinner.addEventListener('change', function() {
     if (this.value === 'true'){
-        $('#dinnerpop').prop("disabled", false);
+        dinnerList.disabled = false;
     } else {
-        $('#dinnerpop').prop("disabled", true);
+        dinnerList.disabled = true;
+        dinnerList.value = '';
     }
 })
 
 
-
+//Number of guests change handler
 number_of_guests.addEventListener('change', function() {
     //clear previous fields
     guestsNamesFields.innerHTML = '';
@@ -76,8 +90,10 @@ number_of_guests.addEventListener('change', function() {
 
     syncFullNameToFirstGuest();
     
+    // Rebuild dinner guests dropdown
+
     dinnerList.innerHTML = '';
-    dinnerList.appendChild(placeholderOption.cloneNode(true));
+    dinnerList.appendChild(createPlaceholder());
     
     for (let i = 1; i <= numberOfGuests; i++){
         // console.log(i);
@@ -130,25 +146,30 @@ function resetRSVPForm() {
 
   // Reset dinner dropdown completely
   dinnerList.innerHTML = '';
-  
-  const placeholder = document.createElement('option');
-  placeholder.value = '';
-  placeholder.textContent = 'Please Select...';
-  placeholder.disabled = true;
-  placeholder.selected = true;
-  dinnerList.appendChild(placeholder);
+  dinnerList.appendChild(createPlaceholder());
+  dinnerList.disabled = true;
+  dinnerList.required = false;
+
+  //Reset other fields
+  modal_number_of_guests.required = false;
+  modal_number_of_guests.value = '';
+  modal_dinner.required = false;
 
   // Disable dinner select again
-  $('#dinnerpop')
-    .prop('disabled', true)
-    .prop('required', false);
+//   $('#dinnerpop')
+//     .prop('disabled', true)
+//     .prop('required', false);
 
-  // Remove required flags
-  $('#modal_number_of_guests').prop('required', false).val('');
-  $('#modal_dinner').prop('required', false);
+//   // Remove required flags
+//   $('#modal_number_of_guests').prop('required', false).val('');
+//   $('#modal_dinner').prop('required', false);
+
+//   // Hide conditional section
+//   $('#acceptRSVP').hide();
 
   // Hide conditional section
-  $('#acceptRSVP').hide();
+  const acceptRSVP = document.getElementById('acceptRSVP');
+  if (acceptRSVP) acceptRSVP.style.display = 'none';
 
   // Reset submit button + messages
   submitBtn.disabled = false;
@@ -189,27 +210,27 @@ document.addEventListener('keydown', function(event) {
 })
 
 // Handle form submission
-const form = document.getElementById('modal-rsvp-form')
-const submitBtn = document.getElementById('modalSubmitBtn')
-const successMessage = document.getElementById('modalSuccessMessage')
-const errorMessage = document.getElementById('modalErrorMessage')
+const form = document.getElementById('modal-rsvp-form');
+const submitBtn = document.getElementById('modalSubmitBtn');
+const successMessage = document.getElementById('modalSuccessMessage');
+const errorMessage = document.getElementById('modalErrorMessage');
 
 form.addEventListener('submit', async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     
     // Disable submit button
-    submitBtn.disabled = true
-    submitBtn.textContent = 'Submitting...'
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
     
     // Hide messages
-    successMessage.style.display = 'none'
-    errorMessage.style.display = 'none'
+    successMessage.style.display = 'none';
+    errorMessage.style.display = 'none';
     
     // Get form data
-    const formData = new FormData(form)
+    const formData = new FormData(form);
 
-    const guestInputs = document.querySelectorAll('.guest-name-input')
-    const guestNames = Array.from(guestInputs).map(input => input.value.trim()).filter(name => name !== '')
+    const guestInputs = document.querySelectorAll('.guest-name-input');
+    const guestNames = Array.from(guestInputs).map(input => input.value.trim()).filter(name => name !== '');
 
     const rsvpData = {
         full_name: formData.get('full_name'),
@@ -221,7 +242,7 @@ form.addEventListener('submit', async (e) => {
         message: formData.get('message') || null,
         attend_dinner: formData.get('attend_dinner') === 'true',
         dinner_pop: parseInt(numberOfDinnerGuests) || 0
-    }
+    };
     
     // Insert into Supabase
     const { data, error } = await supabase
