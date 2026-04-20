@@ -1089,8 +1089,8 @@ section {
 
 @media (min-width: 1442px)  {
     #paragraphDetails {
-        display:flex;
-        flex-direction: column;
+        /* display:flex;
+        flex-direction: column; */
         text-align: center;
         justify-content: center;
     }
